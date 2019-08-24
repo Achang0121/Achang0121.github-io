@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>JMChang的个人博客</title>
+  <title>Linux--用户及文件权限管理.md | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <!-- 辅助函数（Helpers）https://hexo.io/zh-cn/docs/helpers.html#%E6%9D%A1%E4%BB%B6%E5%87%BD%E6%95%B0 -->
-    <meta name="keywords" content="个人学习记录博客">
-  
-  <meta name="description" content="个人学习记录博客">
-<meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JMChang的个人博客">
-<meta property="og:url" content="https://achang0121.github.io/index.html">
+  <meta name="description" content="Linux 用户管理查看用户1who am i 或 who mom likes  who 命令其他常用参数    参数 说明    -a 打印能打印的全部   -d 打印死掉的进程   -m 同am i, mom likes   -q 打印当前登录用户数及用户名   -u 打印当前登录用户登录信息   -r 打印运行等级    创建用户在Linux系统里，root账户拥有整个系统至高无上的权利。拥">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux--用户及文件权限管理.md">
+<meta property="og:url" content="https://achang0121.github.io/2019/08/24/Linux-用户及文件权限管理/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="个人学习记录博客">
+<meta property="og:description" content="Linux 用户管理查看用户1who am i 或 who mom likes  who 命令其他常用参数    参数 说明    -a 打印能打印的全部   -d 打印死掉的进程   -m 同am i, mom likes   -q 打印当前登录用户数及用户名   -u 打印当前登录用户登录信息   -r 打印运行等级    创建用户在Linux系统里，root账户拥有整个系统至高无上的权利。拥">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/ls-l.jpg?raw=true">
+<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8Bor%E6%9D%83%E9%99%90.png?raw=true">
+<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90.png?raw=true">
+<meta property="og:updated_time" content="2019-08-24T09:58:33.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JMChang的个人博客">
-<meta name="twitter:description" content="个人学习记录博客">
+<meta name="twitter:title" content="Linux--用户及文件权限管理.md">
+<meta name="twitter:description" content="Linux 用户管理查看用户1who am i 或 who mom likes  who 命令其他常用参数    参数 说明    -a 打印能打印的全部   -d 打印死掉的进程   -m 同am i, mom likes   -q 打印当前登录用户数及用户名   -u 打印当前登录用户登录信息   -r 打印运行等级    创建用户在Linux系统里，root账户拥有整个系统至高无上的权利。拥">
+<meta name="twitter:image" content="https://github.com/Achang0121/images_blog/blob/master/ls-l.jpg?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -196,25 +198,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Linux-用户及文件权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Linux-用户及文件权限管理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/08/24/Linux-用户及文件权限管理/" target="_blank">Linux--用户及文件权限管理.md</a>
-        
+    <h1 class="article-title" itemprop="name">
+      Linux--用户及文件权限管理.md
     </h1>
   
 
 
   
   
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2019/08/24/Linux-用户及文件权限管理/" class="archive-article-date">
         <time datetime="2019-08-24T09:35:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
 </a>
@@ -363,6 +365,23 @@
     
 
     
+      <div> 
+        <ul class="post-copyright">
+          <li>
+            <strong>本文作者：</strong>
+            JM Chang
+          </li>
+          <li>
+            <strong>本文链接：</strong>
+            <a href="https://achang0121.github.io/2019/08/24/Linux-用户及文件权限管理/" title="Linux--用户及文件权限管理.md" target="_blank">https://achang0121.github.io/2019/08/24/Linux-用户及文件权限管理/</a>
+          </li>
+          <li>
+            <strong>版权声明： </strong>
+            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+          </li>
+        </ul>
+      </div>
+    
 
   </div>
   <div class="article-info article-info-index">
@@ -382,16 +401,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/24/Linux-用户及文件权限管理/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/08/24/Linux-用户及文件权限管理/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/09/firt-article/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">firt article</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -412,163 +491,14 @@
 
 
 
-  
-    <article id="post-firt-article" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/08/09/firt-article/" target="_blank">firt article</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/09/firt-article/" class="archive-article-date">
-        <time datetime="2019-08-09T08:47:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/09/firt-article/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/08/09/hello-world/" target="_blank">Hello World</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/09/hello-world/" class="archive-article-date">
-        <time datetime="2019-08-09T08:43:03.323Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/09/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-  
 
 
           </div>
@@ -606,8 +536,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
