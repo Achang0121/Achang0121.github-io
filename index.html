@@ -75,8 +75,6 @@
 		  <h1 class="header-author"><a href="/">JM Chang</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">个人博客</p>
-		
 
 		<nav class="header-menu">
 			<ul>
@@ -140,8 +138,6 @@
 			  <h1 class="header-author js-header-author">JM Chang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个人博客<i class="icon icon-quo-right"></i></p>
-			
 			
 			
 				
@@ -191,6 +187,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-Linux-目录结构及文件基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/08/24/Linux-目录结构及文件基本操作/" target="_blank">Linux--目录结构及文件基本操作</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/24/Linux-目录结构及文件基本操作/" class="archive-article-date">
+        <time datetime="2019-08-24T10:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Linux目录与Windows目录的区别"><a href="#Linux目录与Windows目录的区别" class="headerlink" title="Linux目录与Windows目录的区别"></a>Linux目录与Windows目录的区别</h2><blockquote>
+<p>一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。</p>
+</blockquote>
+<ul>
+<li><p>以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。</p>
+</li>
+<li><p>Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理解为树形目录结构是一个用户可操作系统的骨架。</p>
+</li>
+<li><p>虽然本质上无论是目录结构还是操作系统内核都是挂载在目录上的，但是从逻辑上来说Linux的磁盘是挂载在目录上的，每一个目录不仅能使用本地磁盘分区的文件系统，也可以使用网络上的文件系统。</p>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/08/24/Linux-目录结构及文件基本操作/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-Linux-用户及文件权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -255,103 +342,9 @@
 </tr>
 </tbody></table>
 <hr>
-<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>在Linux系统里，root账户拥有整个系统至高无上的权利。拥有root权限可以对系统的任何文件执行增、删、改、查的操作。</p>
-<h4 id="su，su-与-sudo"><a href="#su，su-与-sudo" class="headerlink" title="su，su- 与 sudo"></a>su，su- 与 sudo</h4><ol>
-<li><p>su &lt;user&gt; 可以切换到user，执行的时候需要输入目标用户的密码</p>
-</li>
-<li><p>sudo &lt;cmd&gt; 可以以特权级别运行cmd命令，需要当前用户属于sudo组，且需要输入当前用户的密码</p>
-</li>
-<li><p>su - &lt;user&gt; 命令也是切换用户，同时环境变量也会跟着改变成目标用户的环境变量</p>
-</li>
-</ol>
-<hr>
-<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>顾名思义，用户组就是一组用户的集合，它们共享一些资源和权限，同时也拥有私有资源和权限。</p>
-<ul>
-<li><p>groups &lt;用户名&gt; 可查看该用户的用户组。返回的结果是 –&gt; 用户名:用户组名 (若该用户创建的时候未制定用户组的话，默认会自动创建一个与用户名相同的用户组)</p>
-</li>
-<li><p>cat /etc/group 这种方式也是能够看到用户组的信息，在数据较多的情况下，可以使用命令过滤掉不想看的结果(cat /etc/group | grep -E “user” )</p>
-</li>
-<li><p>/etc/group 文件格式说明</p>
-<p>  格式 group_name:password:GID:user_list</p>
-<blockquote>
-<p>由于Linux中密码不可见所以显示的都是x，当用户的GID与用户组的GID相同时，那么最后的一个字段user_list就是空的</p>
-</blockquote>
-</li>
-<li><p>将其他用户加入sudo用户组</p>
-<p>  默认情况下，新建的用户是不具有root权限的，也不再sudo用户组，可以让其加入sudo用户组从而获取到root权限：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su -l lily</span><br><span class="line">sudo ls</span><br></pre></td></tr></table></figure>
-
-<p>  会提示lily不在sudoers文件，意思就是lily不在sudo用户组中。</p>
-<blockquote>
-<p>使用 usermod 命令可以为用户添加用户组，同样使用该命令你必须有root权限。</p>
-</blockquote>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -G sudo username</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo deluser 用户名 --remove-home</span><br></pre></td></tr></table></figure>
-
-<h2 id="Linux文件权限"><a href="#Linux文件权限" class="headerlink" title="Linux文件权限"></a>Linux文件权限</h2><p>在Linux中的每一个文件或目录都包含有访问权限，这些权限决定了谁能访问和如何访问这些文件和目录。</p>
-<h3 id="查看文件权限"><a href="#查看文件权限" class="headerlink" title="查看文件权限"></a>查看文件权限</h3><blockquote>
-<p>ls命令，不带参数时仅仅显示当前目录下的文件</p>
-</blockquote>
-<ul>
-<li><p>使用较长格式列出文件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/ls-l.jpg?raw=true" alt="ls-l 得到结果"></p>
-<ul>
-<li><p>文件权限和类型详解<br><img src="https://github.com/Achang0121/images_blog/blob/master/%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8Bor%E6%9D%83%E9%99%90.png?raw=true" alt="文件权限和类型"></p>
-</li>
-<li><p>文件类型</p>
-<ol>
-<li>Linux中一切皆文件！！</li>
-<li>什么设备文件(/dev目录下有各种设备文件)</li>
-<li>什么 socket(网络套接字)</li>
-<li>软链接文件。。。</li>
-</ol>
-</li>
-<li><p>文件权限</p>
-<ol>
-<li>读写权限</li>
-<li>执行权限</li>
-<li>所有者权限</li>
-</ol>
-</li>
-<li><p>连接数</p>
-<p>  链接到文件所在的inode节点的文件名数目</p>
-</li>
-<li><p>文件大小</p>
-<p>  以inode节点大小为单位来表示的文件大小，可以给ls加上 -lh参数来更直观的查看文件的大小。</p>
-</li>
-<li><p>跟多ls命令 用 <figure class="highlight plain"><figcaption><span>ls``` 查询</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 变更文件所有者</span><br><span class="line"></span><br><span class="line">&gt;执行命令，将hello.md文件的所有者变成achang</span><br><span class="line"></span><br><span class="line">```s</span><br><span class="line">    sudo chown achang hello.md</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3 id="修改文件权限的两种方式"><a href="#修改文件权限的两种方式" class="headerlink" title="修改文件权限的两种方式"></a>修改文件权限的两种方式</h3><ul>
-<li>方式一 : 二进制数字表示</li>
-</ul>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90.png?raw=true" alt="二进制表示文件权限"></p>
-<p>每个文件的三组权限(拥有者，所属用户组，其他用户，顺序是一定的)对应一个’rwx’(读写执行)</p>
-<ul>
-<li>方式二 : 加减赋值操作</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod go-rw 文件名</span><br></pre></td></tr></table></figure>
-
-<p>g、o 、u分别表示group、others和user</p>
-<p>+ 和- 分辨表示增加和去掉相应的权限</p>
-<ul>
-<li><p>adduser 和 useradd 的区别是什么？</p>
-<ol>
-<li>useradd 只创建用户，创建完了用 passwd lilei 去设置新用户的密码。</li>
-<li>adduser 会创建用户，创建目录，创建密码（提示你设置），做这一系列的操作。</li>
-<li>其实 useradd、userdel 这类操作更像是一种命令，执行完了就返回。而 adduser 更像是一种程序，需要你输入、确定等一系列操作。</li>
-</ol>
-</li>
-</ul>
-
+    
+    <a class="article-more-a" href="/2019/08/24/Linux-用户及文件权限管理/#more">more >></a>
+    
     
 
     
@@ -375,10 +368,6 @@
 
     
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/24/Linux-用户及文件权限管理/">展开全文 >></a>
-    </p>
     
 
     
@@ -459,10 +448,6 @@
     
     
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/09/hello-world/">展开全文 >></a>
-    </p>
     
 
     
