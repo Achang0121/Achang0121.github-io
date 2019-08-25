@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Linux--目录结构及文件基本操作 | JMChang的个人博客</title>
+  <title>Linux--环境变量与文件查找 | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Linux目录与Windows目录的区别 一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。   以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。  Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理">
+  <meta name="description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux--目录结构及文件基本操作">
-<meta property="og:url" content="https://achang0121.github.io/2019/08/24/Linux-目录结构及文件基本操作/index.html">
+<meta property="og:title" content="Linux--环境变量与文件查找">
+<meta property="og:url" content="https://achang0121.github.io/2019/08/25/Linux-环境变量与文件查找/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="Linux目录与Windows目录的区别 一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。   以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。  Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理">
+<meta property="og:description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/Linux%E7%9B%AE%E5%BD%95.png?raw=true">
-<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/Linux%E7%9B%AE%E5%BD%95%E5%88%86%E7%B1%BB.jpg?raw=true">
-<meta property="og:updated_time" content="2019-08-24T13:26:46.986Z">
+<meta property="og:updated_time" content="2019-08-25T16:53:34.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux--目录结构及文件基本操作">
-<meta name="twitter:description" content="Linux目录与Windows目录的区别 一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。   以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。  Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理">
-<meta name="twitter:image" content="https://github.com/Achang0121/images_blog/blob/master/Linux%E7%9B%AE%E5%BD%95.png?raw=true">
+<meta name="twitter:title" content="Linux--环境变量与文件查找">
+<meta name="twitter:description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -187,14 +184,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux-目录结构及文件基本操作" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux-环境变量与文件查找" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Linux--目录结构及文件基本操作
+      Linux--环境变量与文件查找
     </h1>
   
 
@@ -206,8 +203,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/08/24/Linux-目录结构及文件基本操作/" class="archive-article-date">
-        <time datetime="2019-08-24T10:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
+<a href="/2019/08/25/Linux-环境变量与文件查找/" class="archive-article-date">
+        <time datetime="2019-08-25T14:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
 </a>
 
   
@@ -216,79 +213,156 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="Linux目录与Windows目录的区别"><a href="#Linux目录与Windows目录的区别" class="headerlink" title="Linux目录与Windows目录的区别"></a>Linux目录与Windows目录的区别</h2><blockquote>
-<p>一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。</p>
+    <h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><blockquote>
+<p>变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。</p>
 </blockquote>
-<ul>
-<li><p>以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。</p>
-</li>
-<li><p>Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理解为树形目录结构是一个用户可操作系统的骨架。</p>
-</li>
-<li><p>虽然本质上无论是目录结构还是操作系统内核都是挂载在目录上的，但是从逻辑上来说Linux的磁盘是挂载在目录上的，每一个目录不仅能使用本地磁盘分区的文件系统，也可以使用网络上的文件系统。</p>
-</li>
-</ul>
+<blockquote>
+<p>变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。</p>
+</blockquote>
 <a id="more"></a>
 
+<ul>
+<li><p>shell中变量的创建、赋值与读取</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为temp的变量</span></span><br><span class="line"><span class="built_in">declare</span> temp</span><br><span class="line"></span><br><span class="line"><span class="comment"># =号赋值</span></span><br><span class="line">temp = hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取变量的值</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$temp</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通常涉及到的三种变量类型</p>
+<ul>
+<li>当前Shell进程私有用户自定义变量，如上面我们创建的temp变量，只在当前Shell中有效。</li>
+<li>Shell本身内建的变量。</li>
+<li>从自定义变量导出的环境变量。</li>
+</ul>
+</li>
+</ul>
+<p>与上述三种环境变量相关的命令:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>set</td>
+<td align="left">显示当前Shell所有变量，包括其内建环境变量(与Shell外观等相关)，用户自定义变量及导出的环境变量。</td>
+</tr>
+<tr>
+<td>env</td>
+<td align="left">显示与当前用户相关的环境变量，还可以让命令在指定环境中运行。</td>
+</tr>
+<tr>
+<td>export</td>
+<td align="left">显示从Shell中导出成环境变量的变量，也能通过它将自定义变量导出为环境变量。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>环境变量永久生效</p>
+<ul>
+<li>修改配置文件，变量永久生效</li>
+<li>使用export命令声明即可，变量在关闭shell时失效。</li>
+<li>/etc/bashrc(里面的.profile只对当前用户永久生效)和/etc/profile(对所有用户生效)，分别存放的是shell变量和环境变量</li>
+</ul>
+</li>
+</ul>
+<h3 id="命令的查找路径与顺序"><a href="#命令的查找路径与顺序" class="headerlink" title="命令的查找路径与顺序"></a>命令的查找路径与顺序</h3><ul>
+<li><p>Shell执行命令是通过环境变量PATH来进行搜索的(和Windows的差不多)。</p>
 <blockquote>
-<p><a href="http://refspecs.linuxfoundation.org/FHS_2.3/fhs-2.3.pdf" target="_blank" rel="noopener">FHS标准</a> (Filesystem Hierarchy Standard 文件系统层次结构标准) 定义了系统中每个区域的用途、所需要的最小构成的文件和睦路同时还给出了例外处理与矛盾处理。</p>
+<p>查看PATH环境变量的内容:</p>
 </blockquote>
-<ul>
-<li><p>Linux 目录结构(tree /命令可以查看)<br><img src="https://github.com/Achang0121/images_blog/blob/master/Linux%E7%9B%AE%E5%BD%95.png?raw=true" alt="Linux目录结构"></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>目录定义的四种交互作用的形态<br><img src="https://github.com/Achang0121/images_blog/blob/master/Linux%E7%9B%AE%E5%BD%95%E5%88%86%E7%B1%BB.jpg?raw=true" alt="Linux目录的四种交互形态"></p>
+<li><p>添加自定义路径到PATH环境变量</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PATH里面的路径是以:作为分隔符，且要填写绝对路径</span></span><br><span class="line">PATH=<span class="variable">$PATH</span>:/home/xx/xxx</span><br><span class="line"><span class="comment"># 添加完成后，该目录下的可执行文件可以在任意目录下执行</span></span><br><span class="line"><span class="comment"># 这种方式只在当前shell中有效</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加全局有效的环境变量，将上述命令追加到配置文件中</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"PATH=<span class="variable">$PATH</span>:/home/xx/xxx"</span> &gt;&gt; .zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改和删除已有变量</p>
+<ul>
+<li><p>变量修改</p>
+<table>
+<thead>
+<tr>
+<th>变量设置方式</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>${变量名#匹配字串}</td>
+<td align="left">从头向后开始匹配，删除符合匹配字串的最短数据</td>
+</tr>
+<tr>
+<td>${变量名##匹配字串}</td>
+<td align="left">从头向后开始匹配，删除符合匹配字串的最长数据</td>
+</tr>
+<tr>
+<td>${变量名%匹配字串}</td>
+<td align="left">从尾向前开始匹配，删除符合匹配字串的最短数据</td>
+</tr>
+<tr>
+<td>${变量名%%匹配字串}</td>
+<td align="left">从尾向前开始匹配，删除符合匹配字串的最长数据</td>
+</tr>
+<tr>
+<td>${变量名/旧的字串/新的字串}</td>
+<td align="left">将符合旧字串的第一个字串替换为新的字串</td>
+</tr>
+<tr>
+<td>${变量名//旧的字串/新的字串}</td>
+<td align="left">将符合旧字串的全部字串替换为新的字串</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>删除变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> temp</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<blockquote>
-<p>目录路径</p>
-</blockquote>
-<ul>
-<li><p>常用命令</p>
-<ul>
-<li><p>进入上一级目录:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>进入你的home目录:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 或者 cd /home/&lt;username&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获取当前路径:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>绝对路径与相对路径</p>
-<ul>
-<li><p>绝对路径: 以根目录(/)为起点的完整路径，以目标目录为终点，例如 /usr/local/bin</p>
-</li>
-<li><p>相对路径: 相对路径是以当前目录为起点到目标目录的路径，不大好举例，略过…</p>
-</li>
-<li><p>进行目录切换的时候可以使用tab键自动补全，连续按两次tab可显示所有备选结果。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Linux文件的基本操作"><a href="#Linux文件的基本操作" class="headerlink" title="Linux文件的基本操作"></a>Linux文件的基本操作</h2><ul>
-<li><p>新建</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建空白文件</span></span><br><span class="line">touch hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建目录</span></span><br><span class="line">mkdir mydir</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 -p 参数，同时创建父目录</span></span><br><span class="line">mkdir -p father/son/grandson</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制一个文件到指定目录</span></span><br><span class="line">cp hello father/son/grandson</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制目录 -r 表示递归复制</span></span><br><span class="line">cp -r father target</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line">rm hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 强制删除</span></span><br><span class="line">rm -f hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除目录 -r 同复制</span></span><br><span class="line">rm -r father</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移动文件与重命名</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mv 源目录 目标目录</span></span><br><span class="line">mv file0 file1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名 mv 旧名字 新名字</span></span><br><span class="line">mv old new</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量重名</span></span><br><span class="line"><span class="comment"># 创建5个文件</span></span><br><span class="line">touch file&#123;1..5&#125;.txt</span><br><span class="line"><span class="comment"># 批量将这5个后缀.txt的文本文件重名为.py为后缀的文件</span></span><br><span class="line">rename <span class="string">'s/\.txt/\.py/'</span> *.txt</span><br></pre></td></tr></table></figure>
+<li><p>source命令可以让修改后环境变量立即生效</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># source可以换成 . 且后面文件必须指定完整的绝对或相对路径名，source则不需要</span></span><br><span class="line">. ./.zshrc</span><br></pre></td></tr></table></figure>
 
-<p>  rename是先使用第二个参数的通配符匹配所有后缀为.txt的文件，然后使用第一个参数提供的正则表达式将这些文件的后缀改了。</p>
 </li>
-<li><p>查看文件</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat(正序), tac(倒序), nl命令查看文件</span></span><br><span class="line">cat file</span><br><span class="line"><span class="comment"># -n 参数显示行号</span></span><br><span class="line">cat -n file</span><br><span class="line"></span><br><span class="line"><span class="comment"># nl 命令，添加行号并打印，比 cat -n 更专业</span></span><br><span class="line">    <span class="comment"># -b : 指定添加行号的方式，主要有两种：</span></span><br><span class="line">        <span class="comment"># -b a:表示无论是否为空行，同样列出行号# ("cat -n"就是这种方式)</span></span><br><span class="line">        <span class="comment"># -b t:只列出非空行的编号并列出（默认为# 这种方式）</span></span><br><span class="line">    <span class="comment"># -n : 设置行号的样式，主要有三种：</span></span><br><span class="line">        <span class="comment"># -n ln:在行号字段最左端显示</span></span><br><span class="line">        <span class="comment"># -n rn:在行号字段最右边显示，且不加 0</span></span><br><span class="line">        <span class="comment"># -n rz:在行号字段最右边显示，且加 0</span></span><br><span class="line">    <span class="comment"># -w : 行号字段占用的位数(默认为 6 位)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># more less命令分页查看文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># head和tail命令查看文件(默认10行，不足10行则显示全部)</span></span><br></pre></td></tr></table></figure>
+</ul>
+<h3 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h3><ul>
+<li><p>whereis 简单快速，只能搜索二进制文件(-b), man帮助文件(-m)和源代码(-s)</p>
 </li>
-<li><p>查看文件类型</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file filename</span><br></pre></td></tr></table></figure>
+<li><p>locate 快而全，通过/var/lib/mlocate/mlocate.db数据库查找</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install locate</span><br><span class="line"><span class="comment"># 搜索/etc目录下所有以a开头的文件</span></span><br><span class="line">locate /etc/a</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>编辑文件</p>
-<p>  emacs, vim等等都可以哈</p>
+<li><p>which 通常用来确定是否安装了某个指定的软件，因为它只从PATH环境变量指定的路径中去搜索命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> man</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 可以通过文件类型、文件名、文件的属性进行搜索，基本格式为 find[path] [option] [action]</p>
+<p>  与时间相关的命令参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-atime</td>
+<td align="left">最后访问时间</td>
+</tr>
+<tr>
+<td>-ctime</td>
+<td align="left">最后修改文件内容的时间</td>
+</tr>
+<tr>
+<td>-mtime</td>
+<td align="left">最后修改文件属性的时间</td>
+</tr>
+</tbody></table>
+<p>  以 -mtime参数举例:</p>
+<ul>
+<li><p>-mtime n : n为数字，表示为在n天之前的“一天之内”修改过的文件</p>
+</li>
+<li><p>-mtime +n : 列出在n天之前(不包含n天本身)被修改过的文件</p>
+</li>
+<li><p>-mtime -n : 列出在n天之内(包含n天本身)被修改过的文件</p>
+</li>
+<li><p>-newer file : file为一个已存在的文件，列出比file还要新的文件名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出比用户家目录下比Code目录新的文件</span></span><br><span class="line">find ~ newer /home/xxx/Code</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 </li>
 </ul>
 
@@ -305,7 +379,7 @@
           </li>
           <li>
             <strong>本文链接：</strong>
-            <a href="https://achang0121.github.io//2019/08/24/Linux-目录结构及文件基本操作/" title="Linux--目录结构及文件基本操作" target="_blank">https://achang0121.github.io//2019/08/24/Linux-目录结构及文件基本操作/</a>
+            <a href="https://achang0121.github.io//2019/08/25/Linux-环境变量与文件查找/" title="Linux--环境变量与文件查找" target="_blank">https://achang0121.github.io//2019/08/25/Linux-环境变量与文件查找/</a>
           </li>
           <li>
             <strong>版权声明： </strong>
@@ -380,7 +454,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/08/24/Linux-目录结构及文件基本操作/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/08/25/Linux-环境变量与文件查找/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -395,18 +469,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/08/25/Linux-环境变量与文件查找/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux--环境变量与文件查找
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/24/Linux-用户及文件权限管理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux--用户及文件权限管理.md</div>
+    <a href="/2019/08/24/Linux-目录结构及文件基本操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux--目录结构及文件基本操作</div>
       <i class="icon-circle-right"></i>
     </a>
   
