@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Linux--环境变量与文件查找 | JMChang的个人博客</title>
+  <title>Selenium -- 安装配置和常用的一些语法 | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="selenium 听说是做自动化测试的工具 - Web Browser Automation，个人仅仅用来模拟登陆一些不登录不让爬的网站。">
+<meta name="keywords" content="Python,Selenium">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux--环境变量与文件查找">
-<meta property="og:url" content="https://achang0121.github.io/2019/08/25/Linux-环境变量与文件查找/index.html">
+<meta property="og:title" content="Selenium -- 安装配置和常用的一些语法">
+<meta property="og:url" content="https://achang0121.github.io/2019/08/29/Selenium-安装配置和常用的一些语法/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
+<meta property="og:description" content="selenium 听说是做自动化测试的工具 - Web Browser Automation，个人仅仅用来模拟登陆一些不登录不让爬的网站。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-08-25T16:53:34.098Z">
+<meta property="og:updated_time" content="2019-08-29T14:43:28.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux--环境变量与文件查找">
-<meta name="twitter:description" content="环境变量 变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。   变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。">
+<meta name="twitter:title" content="Selenium -- 安装配置和常用的一些语法">
+<meta name="twitter:description" content="selenium 听说是做自动化测试的工具 - Web Browser Automation，个人仅仅用来模拟登陆一些不登录不让爬的网站。">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -184,14 +184,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux-环境变量与文件查找" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Selenium-安装配置和常用的一些语法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Linux--环境变量与文件查找
+      Selenium -- 安装配置和常用的一些语法
     </h1>
   
 
@@ -203,8 +203,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/08/25/Linux-环境变量与文件查找/" class="archive-article-date">
-        <time datetime="2019-08-25T14:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+<a href="/2019/08/29/Selenium-安装配置和常用的一些语法/" class="archive-article-date">
+        <time datetime="2019-08-29T09:04:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
 </a>
 
   
@@ -213,158 +213,105 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><blockquote>
-<p>变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。</p>
-</blockquote>
-<blockquote>
-<p>变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。</p>
-</blockquote>
+    <p><a href="https://selenium-python.readthedocs.io/index.html" target="_blank" rel="noopener">selenium</a> 听说是做自动化测试的工具 - Web Browser Automation，个人仅仅用来模拟登陆一些不登录不让爬的网站。</p>
 <a id="more"></a>
 
 <ul>
-<li><p>shell中变量的创建、赋值与读取</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为temp的变量</span></span><br><span class="line"><span class="built_in">declare</span> temp</span><br><span class="line"></span><br><span class="line"><span class="comment"># =号赋值</span></span><br><span class="line">temp = hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取变量的值</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$temp</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通常涉及到的三种变量类型</p>
+<li><p>安装Selenium</p>
 <ul>
-<li>当前Shell进程私有用户自定义变量，如上面我们创建的temp变量，只在当前Shell中有效。</li>
-<li>Shell本身内建的变量。</li>
-<li>从自定义变量导出的环境变量。</li>
+<li><p>Linux下安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装最新的selenium</span></span><br><span class="line">sudo pip3 install selenium</span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
 </li>
 </ul>
-<p>与上述三种环境变量相关的命令:</p>
+<ul>
+<li><p>Windows下安装<br><a href="https://www.seleniumhq.org/" target="_blank" rel="noopener">selenium官网</a>下载对应的版本安装即可。</p>
+</li>
+<li><p>安装浏览器和与其对应的浏览器驱动</p>
+<ul>
+<li><p>Chrome 和 <a href="https://sites.google.com/a/chromium.org/chromedriver/" target="_blank" rel="noopener">ChromeDriver</a></p>
+</li>
+<li><p>Firefox 和 <a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">geckodriver</a></p>
+</li>
+<li><p>and so on</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>浏览器操作</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 浏览器可随意选，个人chrome和firefox多些</span></span><br><span class="line">browser = webdriver.Firefox()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送GET请求</span></span><br><span class="line">browser.get(<span class="string">'https://www.123.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置浏览器的宽高</span></span><br><span class="line">browser.set_window_size(&lt;width&gt;, &lt;height&gt;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大化窗口</span></span><br><span class="line">browser.maximize_window()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入另一个页面</span></span><br><span class="line">browser.get(<span class="string">'https://www.456.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后退到上一个页面 123的页面</span></span><br><span class="line">browser.back()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前进到下一个页面 456的页面</span></span><br><span class="line">browser.forward()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出浏览器</span></span><br><span class="line">browser.quit()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 个人用得少的就没列举</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素的定位(常用)</p>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th align="left">说明</th>
+<th>定位元素</th>
+<th align="left">对应python webdriver的方法</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>set</td>
-<td align="left">显示当前Shell所有变量，包括其内建环境变量(与Shell外观等相关)，用户自定义变量及导出的环境变量。</td>
+<td>id</td>
+<td align="left">find_element_by_id()</td>
 </tr>
 <tr>
-<td>env</td>
-<td align="left">显示与当前用户相关的环境变量，还可以让命令在指定环境中运行。</td>
+<td>name</td>
+<td align="left">find_element_by_name()</td>
 </tr>
 <tr>
-<td>export</td>
-<td align="left">显示从Shell中导出成环境变量的变量，也能通过它将自定义变量导出为环境变量。</td>
+<td>class name</td>
+<td align="left">find_element_by_class_name()</td>
+</tr>
+<tr>
+<td>tag name</td>
+<td align="left">find_element_by_tag_name()</td>
+</tr>
+<tr>
+<td>link text</td>
+<td align="left">find_element_by_link_text()</td>
+</tr>
+<tr>
+<td>partial link text</td>
+<td align="left">find_element_by_partial_link_text()</td>
+</tr>
+<tr>
+<td>xpath</td>
+<td align="left">find_element_by_xpath()</td>
+</tr>
+<tr>
+<td>css selector</td>
+<td align="left">find_element_by_css_selector()</td>
 </tr>
 </tbody></table>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome()</span><br><span class="line">browser.get(<span class="string">'http://xxx.xxx'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设定位到了id为A的一个元素, 需要进行点击操作，像什么超链接，文本框，带有超链接的图片啥的都可进行点击操作</span></span><br><span class="line"></span><br><span class="line">browser.find_element_by_id(<span class="string">'#A'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">类似的还有像：</span></span><br><span class="line"><span class="string">清空文本框 -- .clear()</span></span><br><span class="line"><span class="string">输入 -- send_keys()</span></span><br><span class="line"><span class="string">获取定位元素的属性 -- .text | .size | .get_attribute("属性名")</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下拉页面</p>
 <ul>
-<li><p>环境变量永久生效</p>
-<ul>
-<li>修改配置文件，变量永久生效</li>
-<li>使用export命令声明即可，变量在关闭shell时失效。</li>
-<li>/etc/bashrc(里面的.profile只对当前用户永久生效)和/etc/profile(对所有用户生效)，分别存放的是shell变量和环境变量</li>
-</ul>
+<li><p>下拉指定高度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定了下拉高度是100</span></span><br><span class="line">js = <span class="string">'document.documentElement.scrollTop=100;'</span></span><br><span class="line">browser.execute_script(js)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用目标元素做参考下拉</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target_element = browser.find_element_by_xxx()</span><br><span class="line">js = <span class="string">'arguments[0].scrollIntoView();'</span></span><br><span class="line">browser.execute_script(js, target_element)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="命令的查找路径与顺序"><a href="#命令的查找路径与顺序" class="headerlink" title="命令的查找路径与顺序"></a>命令的查找路径与顺序</h3><ul>
-<li><p>Shell执行命令是通过环境变量PATH来进行搜索的(和Windows的差不多)。</p>
+</li>
+<li><p>页面弹窗alert的定位</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">alert = browser.switch_to.alert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取alert中的文本</span></span><br><span class="line">alert.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击确定</span></span><br><span class="line">alert.accept()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击取消(if exist)</span></span><br><span class="line">alert.dismiss()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换窗口</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取窗口所有句柄</span></span><br><span class="line">all_handles = browser.window_handles</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前窗口句柄</span></span><br><span class="line">curr_window = browser.current_window_handle</span><br><span class="line"><span class="keyword">for</span> handle <span class="keyword">in</span> all_handles:</span><br><span class="line">    <span class="keyword">if</span> k != curr_window:</span><br><span class="line">    browser.switch_to.window(k)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位iframe</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前面的部分就省略了</span></span><br><span class="line">iframe = browser.find_element_by_xxx()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到iframe</span></span><br><span class="line">browser.switch_to.frame(iframe)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do something</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳出iframe</span></span><br><span class="line">browser.switch_to.default_content()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 <blockquote>
-<p>查看PATH环境变量的内容:</p>
+<p>以上是selenium最简单基本的用法了，不过对于模拟登陆来说也差不多了，再用到再补充。。。</p>
 </blockquote>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加自定义路径到PATH环境变量</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PATH里面的路径是以:作为分隔符，且要填写绝对路径</span></span><br><span class="line">PATH=<span class="variable">$PATH</span>:/home/xx/xxx</span><br><span class="line"><span class="comment"># 添加完成后，该目录下的可执行文件可以在任意目录下执行</span></span><br><span class="line"><span class="comment"># 这种方式只在当前shell中有效</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加全局有效的环境变量，将上述命令追加到配置文件中</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"PATH=<span class="variable">$PATH</span>:/home/xx/xxx"</span> &gt;&gt; .zshrc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改和删除已有变量</p>
-<ul>
-<li><p>变量修改</p>
-<table>
-<thead>
-<tr>
-<th>变量设置方式</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>${变量名#匹配字串}</td>
-<td align="left">从头向后开始匹配，删除符合匹配字串的最短数据</td>
-</tr>
-<tr>
-<td>${变量名##匹配字串}</td>
-<td align="left">从头向后开始匹配，删除符合匹配字串的最长数据</td>
-</tr>
-<tr>
-<td>${变量名%匹配字串}</td>
-<td align="left">从尾向前开始匹配，删除符合匹配字串的最短数据</td>
-</tr>
-<tr>
-<td>${变量名%%匹配字串}</td>
-<td align="left">从尾向前开始匹配，删除符合匹配字串的最长数据</td>
-</tr>
-<tr>
-<td>${变量名/旧的字串/新的字串}</td>
-<td align="left">将符合旧字串的第一个字串替换为新的字串</td>
-</tr>
-<tr>
-<td>${变量名//旧的字串/新的字串}</td>
-<td align="left">将符合旧字串的全部字串替换为新的字串</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>删除变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> temp</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>source命令可以让修改后环境变量立即生效</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># source可以换成 . 且后面文件必须指定完整的绝对或相对路径名，source则不需要</span></span><br><span class="line">. ./.zshrc</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="搜索文件"><a href="#搜索文件" class="headerlink" title="搜索文件"></a>搜索文件</h3><ul>
-<li><p>whereis 简单快速，只能搜索二进制文件(-b), man帮助文件(-m)和源代码(-s)</p>
-</li>
-<li><p>locate 快而全，通过/var/lib/mlocate/mlocate.db数据库查找</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install locate</span><br><span class="line"><span class="comment"># 搜索/etc目录下所有以a开头的文件</span></span><br><span class="line">locate /etc/a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>which 通常用来确定是否安装了某个指定的软件，因为它只从PATH环境变量指定的路径中去搜索命令</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> man</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find 可以通过文件类型、文件名、文件的属性进行搜索，基本格式为 find[path] [option] [action]</p>
-<p>  与时间相关的命令参数：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-atime</td>
-<td align="left">最后访问时间</td>
-</tr>
-<tr>
-<td>-ctime</td>
-<td align="left">最后修改文件内容的时间</td>
-</tr>
-<tr>
-<td>-mtime</td>
-<td align="left">最后修改文件属性的时间</td>
-</tr>
-</tbody></table>
-<p>  以 -mtime参数举例:</p>
-<ul>
-<li><p>-mtime n : n为数字，表示为在n天之前的“一天之内”修改过的文件</p>
-</li>
-<li><p>-mtime +n : 列出在n天之前(不包含n天本身)被修改过的文件</p>
-</li>
-<li><p>-mtime -n : 列出在n天之内(包含n天本身)被修改过的文件</p>
-</li>
-<li><p>-newer file : file为一个已存在的文件，列出比file还要新的文件名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出比用户家目录下比Code目录新的文件</span></span><br><span class="line">find ~ newer /home/xxx/Code</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
 
     
 
@@ -379,7 +326,7 @@
           </li>
           <li>
             <strong>本文链接：</strong>
-            <a href="https://achang0121.github.io//2019/08/25/Linux-环境变量与文件查找/" title="Linux--环境变量与文件查找" target="_blank">https://achang0121.github.io//2019/08/25/Linux-环境变量与文件查找/</a>
+            <a href="https://achang0121.github.io//2019/08/29/Selenium-安装配置和常用的一些语法/" title="Selenium -- 安装配置和常用的一些语法" target="_blank">https://achang0121.github.io//2019/08/29/Selenium-安装配置和常用的一些语法/</a>
           </li>
           <li>
             <strong>版权声明： </strong>
@@ -398,7 +345,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Selenium</a>
         		</li>
       		
 		</ul>
@@ -454,7 +405,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/08/25/Linux-环境变量与文件查找/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/08/29/Selenium-安装配置和常用的一些语法/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -469,18 +420,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/08/29/Selenium-安装配置和常用的一些语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Selenium -- 安装配置和常用的一些语法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/24/Linux-目录结构及文件基本操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux--目录结构及文件基本操作</div>
+    <a href="/2019/08/25/Linux-环境变量与文件查找/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux--环境变量与文件查找</div>
       <i class="icon-circle-right"></i>
     </a>
   
