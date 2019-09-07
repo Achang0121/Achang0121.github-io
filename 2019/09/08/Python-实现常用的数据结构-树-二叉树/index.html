@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Archives: 2019/9 | JMChang的个人博客</title>
+  <title>Python -- 实现常用的数据结构-树(二叉树) | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="个人学习记录博客">
-<meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JMChang的个人博客">
-<meta property="og:url" content="https://achang0121.github.io/archives/2019/09/index.html">
+  <meta name="description" content="树–&amp;gt;高效的非线性存储结构树长的什么样子 没错，Linux中的目录就是一个树形结构。 树的一些概念树 ——–&amp;gt;&amp;gt; 一种将元素分层次存储的抽象数据类型。（很像n个链表找到自己的根一样）  树（Tree）是n(n≥0)个结点的有限集。在任意一棵树中：  有且仅有一个特定的称为根（Root）的节点；  当n&amp;gt;1时，其余节点可分为m(m&amp;gt;0)个互不相交的有限集T1,T2,…,">
+<meta name="keywords" content="Python,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python -- 实现常用的数据结构-树(二叉树)">
+<meta property="og:url" content="https://achang0121.github.io/2019/09/08/Python-实现常用的数据结构-树-二叉树/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="个人学习记录博客">
+<meta property="og:description" content="树–&amp;gt;高效的非线性存储结构树长的什么样子 没错，Linux中的目录就是一个树形结构。 树的一些概念树 ——–&amp;gt;&amp;gt; 一种将元素分层次存储的抽象数据类型。（很像n个链表找到自己的根一样）  树（Tree）是n(n≥0)个结点的有限集。在任意一棵树中：  有且仅有一个特定的称为根（Root）的节点；  当n&amp;gt;1时，其余节点可分为m(m&amp;gt;0)个互不相交的有限集T1,T2,…,">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/%E6%A0%91.png?raw=true">
+<meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/binary_tree.jpg?raw=true">
+<meta property="og:updated_time" content="2019-09-07T18:14:30.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JMChang的个人博客">
-<meta name="twitter:description" content="个人学习记录博客">
+<meta name="twitter:title" content="Python -- 实现常用的数据结构-树(二叉树)">
+<meta name="twitter:description" content="树–&amp;gt;高效的非线性存储结构树长的什么样子 没错，Linux中的目录就是一个树形结构。 树的一些概念树 ——–&amp;gt;&amp;gt; 一种将元素分层次存储的抽象数据类型。（很像n个链表找到自己的根一样）  树（Tree）是n(n≥0)个结点的有限集。在任意一棵树中：  有且仅有一个特定的称为根（Root）的节点；  当n&amp;gt;1时，其余节点可分为m(m&amp;gt;0)个互不相交的有限集T1,T2,…,">
+<meta name="twitter:image" content="https://github.com/Achang0121/images_blog/blob/master/%E6%A0%91.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -183,41 +187,199 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Python-实现常用的数据结构-树-二叉树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/09/08/Python-实现常用的数据结构-树-二叉树/" class="archive-article-date">
-        <time datetime="2019-09-07T18:13:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/09/08/Python-实现常用的数据结构-树-二叉树/" target="_blank">Python -- 实现常用的数据结构-树(二叉树)</a>
-        
+    <h1 class="article-title" itemprop="name">
+      Python -- 实现常用的数据结构-树(二叉树)
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/09/08/Python-实现常用的数据结构-树-二叉树/" class="archive-article-date">
+        <time datetime="2019-09-07T18:13:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="树–-gt-高效的非线性存储结构"><a href="#树–-gt-高效的非线性存储结构" class="headerlink" title="树–&gt;高效的非线性存储结构"></a>树–&gt;高效的非线性存储结构</h3><h4 id="树长的什么样子"><a href="#树长的什么样子" class="headerlink" title="树长的什么样子"></a>树长的什么样子</h4><p><img src="https://github.com/Achang0121/images_blog/blob/master/%E6%A0%91.png?raw=true" alt="avatar"></p>
+<p>没错，Linux中的目录就是一个树形结构。</p>
+<h4 id="树的一些概念"><a href="#树的一些概念" class="headerlink" title="树的一些概念"></a>树的一些概念</h4><p>树 ——–&gt;&gt; 一种将元素分层次存储的抽象数据类型。（很像n个链表找到自己的根一样）</p>
+<ul>
+<li><p>树（Tree）是n(n≥0)个结点的有限集。在任意一棵树中：</p>
+<ul>
+<li><p>有且仅有一个特定的称为根（Root）的节点；</p>
+</li>
+<li><p>当n&gt;1时，其余节点可分为m(m&gt;0)个互不相交的有限集T1,T2,…,Tm,其中每一个集合本身又是一棵树，并且称为根的子树（SubTree）。</p>
+</li>
+</ul>
+</li>
+<li><p>树的一些基本术语：</p>
+<ul>
+<li><p>节点的度：节点拥有的子树数量</p>
+</li>
+<li><p>内部节点(分支节点)：度不为0的节点，换句话讲就是有子节点</p>
+</li>
+<li><p>外部节点(叶子节点)：度为0的节点</p>
+</li>
+<li><p>孩子-双亲-兄弟-子孙：节点子树的根节点称为节点的孩子(child)，该节点则为孩子的parent，同一个parent的child是为兄弟(sibling)，以某个节点为根的子树中的任意一个节点都是该节点的子孙。</p>
+</li>
+<li><p>树的层次(level)：从根开始，根为第0层，根的孩子为第1层，以此类推。。。</p>
+</li>
+<li><p>边：树的一条边指的是一对节点(u, v)，u是v的父节点或者v是u的父节点</p>
+</li>
+<li><p>路径：树的路径根Linux的文件路径差不多是一个意思，指的是一系列的节点，这些节点中任意两个连续的节点之间都是一条边。像上图中 /etc/rc.d/init.d 就是路径</p>
+</li>
+<li><p>深度: 若存在节点p，p的祖先节点个数就是p的深度，不包括p本身(自下而上，直到根节点)，根节点深度为0</p>
+</li>
+<li><p>高度: 若节点p是叶子结点，则高度为0，否则就是其子节点的高度加1(自上而下)，一棵非空的树的高度就是根节点的高度。简单说就是某节点的高度，就是其子节点中深度最大的叶子节点的深度</p>
+</li>
+<li><p>有序树和无序树：如果将树中节点的各子树看成从左导游是有次序的(即不能交换)，是为有序树，否则是为无序树</p>
+</li>
+<li><p>森林(forest)：对树中的每个节点来说，其子树的集合即为森林</p>
+<a id="more"></a>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="二叉树的定义、基本性质与分类"><a href="#二叉树的定义、基本性质与分类" class="headerlink" title="二叉树的定义、基本性质与分类"></a>二叉树的定义、基本性质与分类</h4><ul>
+<li><p>定义：Binary-Tree是一种特殊的树形结构(有序树)</p>
+<ul>
+<li><p>每个节点至多有两棵子树</p>
+</li>
+<li><p>子树有左右之分，在顺序上，左先于右，次序不能任意调换</p>
+</li>
+</ul>
+</li>
+<li><p>性质</p>
+<ul>
+<li><p>在第i层上，至多有2^i个节点（i&gt;=0) （根节点为第0层）</p>
+</li>
+<li><p>高度为h的二叉树至多有2^(h+1) - 1个节点(h&gt;=0)</p>
+</li>
+<li><p>对任意一棵二叉树， 如果其叶子节点数为n0，度为2的节点为n2，则n0=n2+1</p>
+</li>
+</ul>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>满二叉树：深度为k的且有2^k -1个节点的二叉树（直观来讲就是叶子节点只出现在最下面的一层）</p>
+</li>
+<li><p>完全二叉树：将满二叉树，从最下面一层自右向左地依次移除节点，都会变成完全二叉树</p>
+<ul>
+<li><p>具有n个节点的完全二叉树的高度为|log(n)|</p>
+</li>
+<li><p>如果对一棵有n个节点的完全二叉树的节点按层序编号，则对任一节点i(1&lt;=i&lt;=n)</p>
+<ol>
+<li><p>如果i=1，则节点i为根节点，无parent；如果i&gt;1，则parent节点为1/2</p>
+</li>
+<li><p>如果2i&gt;n，则节点i无左child，否则其左child是节点2i</p>
+</li>
+<li><p>如果2i+1&gt;n，则节点i无右child，否则其右child是节点2i+1</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>不完全二叉树：完全二叉树的补集</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见的二叉树的遍历-非空树哈"><a href="#常见的二叉树的遍历-非空树哈" class="headerlink" title="常见的二叉树的遍历(非空树哈)"></a>常见的二叉树的遍历(非空树哈)</h4><p><img src="https://github.com/Achang0121/images_blog/blob/master/binary_tree.jpg?raw=true" alt="BTree"></p>
+<ul>
+<li><p>深度优先遍历</p>
+<ul>
+<li><p>先序遍历（也叫先根遍历）DLR</p>
+<p>遍历结果：7 3 1 4 5 9</p>
+<ul>
+<li><p>访问根节点</p>
+</li>
+<li><p>先序遍历左子树</p>
+</li>
+<li><p>先序遍历右子树</p>
+</li>
+</ul>
+</li>
+<li><p>中序遍历（中根遍历）LDR</p>
+<p>遍历结果：1 3 4 5 7 9</p>
+<ul>
+<li><p>中序遍历左子树</p>
+</li>
+<li><p>访问根节点</p>
+</li>
+<li><p>中序遍历右子树</p>
+</li>
+</ul>
+</li>
+<li><p>后序遍历（后根遍历）LRD</p>
+<p>遍历结果：1 5 4 3 9 7</p>
+<ul>
+<li><p>后序遍历左子树</p>
+</li>
+<li><p>后序遍历右子树</p>
+</li>
+<li><p>访问根节点</p>
+</li>
+</ul>
+<p>上面三种用递归实现还挺容易理解的</p>
+</li>
+</ul>
+</li>
+<li><p>广度优先遍历</p>
+<p>  遍历结果：7 3 9 1 4 5</p>
+<ul>
+<li>层序遍历：从上到下、从左到右按层次进行访问树的所有节点</li>
+</ul>
+</li>
+</ul>
+<h4 id="二叉树Python实现"><a href="#二叉树Python实现" class="headerlink" title="二叉树Python实现"></a>二叉树Python实现</h4><p>个人觉得树真的很像链表开了叉一样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, element, left=None, right=None)</span>:</span></span><br><span class="line">        self.element = element</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinaryTree</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> bool(self.root <span class="keyword">is</span> <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre_order_traversal</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""先序遍历"""</span></span><br><span class="line">        print(<span class="string">"先序遍历二叉树："</span>)</span><br><span class="line">        self._pre_order_traversal(self.root)</span><br><span class="line">        print()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_pre_order_traversal</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="string">"""先序遍历"""</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(node.element, end=<span class="string">" "</span>)</span><br><span class="line">            self._pre_order_traversal(node.left)</span><br><span class="line">            self._pre_order_traversal(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_order_traversal</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""中序遍历(递归)"""</span></span><br><span class="line">        print(<span class="string">"中序遍历二叉树："</span>)</span><br><span class="line">        self._in_order_traversal(self.root)</span><br><span class="line">        print()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_in_order_traversal</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._in_order_traversal(node.left)</span><br><span class="line">            print(node.element, end=<span class="string">" "</span>)</span><br><span class="line">            self._in_order_traversal(node.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_order_traversal_by_stack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""非递归，中序遍历二叉树"""</span></span><br><span class="line">        print(<span class="string">"非递归中序遍历二叉树："</span>)</span><br><span class="line">        temp = self.root</span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">while</span> temp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">or</span> stack != []:</span><br><span class="line">            <span class="keyword">while</span> temp <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                stack.append(temp)</span><br><span class="line">                temp = temp.left</span><br><span class="line">            <span class="keyword">if</span> stack:</span><br><span class="line">                temp = stack.pop()</span><br><span class="line">                print(temp.element, end=<span class="string">" "</span>)</span><br><span class="line">                temp = temp.right</span><br><span class="line">        print()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_order_traversal</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""后序遍历"""</span></span><br><span class="line">        print(<span class="string">"后续遍历二叉树："</span>)</span><br><span class="line">        self._post_order_traversal(self.root)</span><br><span class="line">        print()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_post_order_traversal</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self._post_order_traversal(node.left)</span><br><span class="line">            self._post_order_traversal(node.right)</span><br><span class="line">            print(node.element, end=<span class="string">" "</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">level_order_traversal_by_stack</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""按照层次遍历二叉树，返回按层次遍历的每个节点的element"""</span></span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        cur_stack = [self.root]</span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">while</span> cur_stack:</span><br><span class="line">            next_stack = []</span><br><span class="line">            <span class="keyword">for</span> point <span class="keyword">in</span> cur_stack:</span><br><span class="line">                <span class="keyword">if</span> point.left:</span><br><span class="line">                    next_stack.append(point.left)</span><br><span class="line">                <span class="keyword">if</span> point.right:</span><br><span class="line">                    next_stack.append(point.right)</span><br><span class="line">                result.append(point.element)</span><br><span class="line">            cur_stack = next_stack</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_height</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""返回树的高度"""</span></span><br><span class="line">        print(<span class="string">"二叉树的高度："</span>)</span><br><span class="line">        <span class="keyword">return</span> self._get_height(self.root)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_height</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 获取左子树的高度</span></span><br><span class="line">            l_height = self._get_height(node.left)</span><br><span class="line">            <span class="comment"># 获取右子树的高度</span></span><br><span class="line">            r_height = self._get_height(node.right)</span><br><span class="line">            <span class="comment"># 返回max(左子树高度，右子树高度) + 1</span></span><br><span class="line">            <span class="keyword">return</span> l_height + <span class="number">1</span> <span class="keyword">if</span> l_height &gt; r_height <span class="keyword">else</span> r_height + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">num_nodes</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""返回树的节点个数"""</span></span><br><span class="line">        print(<span class="string">"二叉树节点的数量："</span>)</span><br><span class="line">        <span class="keyword">return</span> self._num_nodes(self.root)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_num_nodes</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 左子树的节点数</span></span><br><span class="line">            l_tree = self._num_nodes(node.left)</span><br><span class="line">            <span class="comment"># 右子树的节点数</span></span><br><span class="line">            r_tree = self._num_nodes(node.right)</span><br><span class="line">            <span class="keyword">return</span> l_tree + r_tree + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find_value</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""在二叉树中搜索value"""</span></span><br><span class="line">        <span class="keyword">return</span> self._find_value(value, self.root)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_find_value</span><span class="params">(self, value, node)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> node <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> node.element == value:</span><br><span class="line">            <span class="keyword">return</span> node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l_child = self._find_value(value, node.left)</span><br><span class="line">            r_child = self._find_value(value, node.right)</span><br><span class="line">            <span class="keyword">if</span> l_child <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> l_child.element == value:</span><br><span class="line">                <span class="keyword">return</span> l_child</span><br><span class="line">            <span class="keyword">elif</span> r_child <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> r_child.element == value:</span><br><span class="line">                <span class="keyword">return</span> r_child</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 构造上图二叉树，笨方法啦，要是先定义Tree的ADT，然后写BTree的ADT，巨长。。。</span></span><br><span class="line">    tree = BinaryTree()</span><br><span class="line">    tree.root = Node(<span class="number">7</span>)</span><br><span class="line">    tree.root.left = Node(<span class="number">3</span>)</span><br><span class="line">    tree.root.left.left = Node(<span class="number">1</span>)</span><br><span class="line">    tree.root.left.right = Node(<span class="number">4</span>)</span><br><span class="line">    tree.root.left.right.right = Node(<span class="number">5</span>)</span><br><span class="line">    tree.root.right = Node(<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 前序遍历      7 3 1 4 5 9</span></span><br><span class="line">    tree.pre_order_traversal()</span><br><span class="line">    <span class="comment"># 中序遍历      1 3 4 5 7 9</span></span><br><span class="line">    tree.in_order_traversal()</span><br><span class="line">    <span class="comment"># 非递归中序遍历    1 3 4 5 7 9</span></span><br><span class="line">    tree.in_order_traversal_by_stack()</span><br><span class="line">    <span class="comment"># 后序遍历      1 5 4 3 9 7</span></span><br><span class="line">    tree.post_order_traversal()</span><br><span class="line">    <span class="comment"># 树的高度      4</span></span><br><span class="line">    print(tree.get_height())</span><br><span class="line">    <span class="comment"># 树的节点数量    6</span></span><br><span class="line">    print(tree.num_nodes())</span><br><span class="line">    <span class="comment"># 在二叉树中搜索4，返回对应的节点</span></span><br><span class="line">    print(tree.find_value(<span class="number">4</span>))</span><br><span class="line">    <span class="comment"># 按层次遍历二叉树      [7, 3, 9, 1, 4, 5]</span></span><br><span class="line">    print(tree.level_order_traversal_by_stack())</span><br></pre></td></tr></table></figure>
+
+<p>递归是真好用，但是江湖据传不能乱用递归，暂时也用得不多，只能记住这个传言。。。</p>
+
+    
+
+    
+
+    
+      <div> 
+        <ul class="post-copyright">
+          <li>
+            <strong>本文作者：</strong>
+            JM Chang
+          </li>
+          <li>
+            <strong>本文链接：</strong>
+            <a href="https://achang0121.github.io//2019/09/08/Python-实现常用的数据结构-树-二叉树/" title="Python -- 实现常用的数据结构-树(二叉树)" target="_blank">https://achang0121.github.io//2019/09/08/Python-实现常用的数据结构-树-二叉树/</a>
+          </li>
+          <li>
+            <strong>版权声明： </strong>
+            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+          </li>
+        </ul>
+      </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,62 +395,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/09/08/Python-实现常用的数据结构-树-二叉树/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/09/02/Linux-文件系统操作与磁盘管理/" class="archive-article-date">
-        <time datetime="2019-09-02T13:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
 
-        </div>
-    	 
+
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/09/02/Linux-文件系统操作与磁盘管理/" target="_blank">Linux -- 文件系统操作与磁盘管理</a>
+  
+    <a href="/2019/09/02/Linux-文件系统操作与磁盘管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux -- 文件系统操作与磁盘管理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+        
+    </div>
+</aside>
 
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -327,8 +534,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
