@@ -6,21 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Python -- 实现常用的数据结构 -- 堆和优先级队列 | JMChang的个人博客</title>
+  <title>JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="什么是堆（heap）？堆是一棵完全二叉树，有最大堆和最小堆两种：  最大堆：对于每个内部节点的值都大于或者等于其子节点的值，也就是说最大值在最上面  最小堆：与最大堆相反，每个内部节点的值小于或者等于其子节点的值，同样意味着最小值在最上面">
-<meta name="keywords" content="Python,数据结构">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python -- 实现常用的数据结构 -- 堆和优先级队列">
-<meta property="og:url" content="https://achang0121.github.io/2019/09/09/Python-实现常用的数据结构-优先队列/index.html">
+    <!-- 辅助函数（Helpers）https://hexo.io/zh-cn/docs/helpers.html#%E6%9D%A1%E4%BB%B6%E5%87%BD%E6%95%B0 -->
+    <meta name="keywords" content="个人学习记录博客">
+  
+  <meta name="description" content="个人学习记录博客">
+<meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JMChang的个人博客">
+<meta property="og:url" content="https://achang0121.github.io/page/2/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="什么是堆（heap）？堆是一棵完全二叉树，有最大堆和最小堆两种：  最大堆：对于每个内部节点的值都大于或者等于其子节点的值，也就是说最大值在最上面  最小堆：与最大堆相反，每个内部节点的值小于或者等于其子节点的值，同样意味着最小值在最上面">
+<meta property="og:description" content="个人学习记录博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-09-16T19:03:35.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python -- 实现常用的数据结构 -- 堆和优先级队列">
-<meta name="twitter:description" content="什么是堆（heap）？堆是一棵完全二叉树，有最大堆和最小堆两种：  最大堆：对于每个内部节点的值都大于或者等于其子节点的值，也就是说最大值在最上面  最小堆：与最大堆相反，每个内部节点的值小于或者等于其子节点的值，同样意味着最小值在最上面">
+<meta name="twitter:title" content="JMChang的个人博客">
+<meta name="twitter:description" content="个人学习记录博客">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -184,27 +186,27 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python-实现常用的数据结构-优先队列" class="article article-type-post " itemscope itemprop="blogPost">
+            
+
+  
+    <article id="post-Linux-目录结构及文件基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
-    <h1 class="article-title" itemprop="name">
-      Python -- 实现常用的数据结构 -- 堆和优先级队列
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/08/24/Linux-目录结构及文件基本操作/" target="_blank">Linux--目录结构及文件基本操作</a>
+        
     </h1>
   
 
 
   
   
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/09/09/Python-实现常用的数据结构-优先队列/" class="archive-article-date">
-        <time datetime="2019-09-09T07:38:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+<a href="/2019/08/24/Linux-目录结构及文件基本操作/" class="archive-article-date">
+        <time datetime="2019-08-24T10:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
 </a>
 
   
@@ -213,83 +215,24 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="什么是堆（heap）？"><a href="#什么是堆（heap）？" class="headerlink" title="什么是堆（heap）？"></a>什么是堆（heap）？</h3><p>堆是一棵完全二叉树，有最大堆和最小堆两种：</p>
+    <h2 id="Linux目录与Windows目录的区别"><a href="#Linux目录与Windows目录的区别" class="headerlink" title="Linux目录与Windows目录的区别"></a>Linux目录与Windows目录的区别</h2><blockquote>
+<p>一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。</p>
+</blockquote>
 <ul>
-<li><p>最大堆：对于每个内部节点的值都大于或者等于其子节点的值，也就是说最大值在最上面</p>
+<li><p>以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。</p>
 </li>
-<li><p>最小堆：与最大堆相反，每个内部节点的值小于或者等于其子节点的值，同样意味着最小值在最上面</p>
+<li><p>Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理解为树形目录结构是一个用户可操作系统的骨架。</p>
+</li>
+<li><p>虽然本质上无论是目录结构还是操作系统内核都是挂载在目录上的，但是从逻辑上来说Linux的磁盘是挂载在目录上的，每一个目录不仅能使用本地磁盘分区的文件系统，也可以使用网络上的文件系统。</p>
 </li>
 </ul>
-<a id="more"></a>
-
-<h4 id="最大堆的简单实现"><a href="#最大堆的简单实现" class="headerlink" title="最大堆的简单实现"></a>最大堆的简单实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaxHeap</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._heap = []</span><br><span class="line">        self._size = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_parent</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (j - <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_left</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> j * <span class="number">2</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_right</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> j * <span class="number">2</span> + <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_has_left</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._left(j) &lt; self._size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_has_right</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._right(j) &lt; self._size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_swap</span><span class="params">(self, i, j)</span>:</span></span><br><span class="line">        <span class="string">"""交换i和j的值"""</span></span><br><span class="line">        self._heap[i], self._heap[j] = self._heap[j], self._heap[i]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_shiftUp</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="string">"""将j位置的值与其父节点的值比较，如果j的值大则与父节点交换，递归调用，保持最大堆的特性"""</span></span><br><span class="line">        parent = self._parent(j)</span><br><span class="line">        <span class="keyword">if</span> j &gt;<span class="number">0</span> <span class="keyword">and</span> self._heap[j] &gt; self._heap[parent]:</span><br><span class="line">            self._swap(j, parent)</span><br><span class="line">            self._shiftUp(parent)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_shiftDown</span><span class="params">(self, j)</span>:</span></span><br><span class="line">        <span class="string">"""在j的子节点存在的情况下，将j的值和子节点中较大的值交换，同样是递归调用，同样也是保持最大堆的特性"""</span></span><br><span class="line">        <span class="keyword">if</span> self._has_left(j):</span><br><span class="line">            left = self._left(j)</span><br><span class="line">            bigger = left</span><br><span class="line">            <span class="keyword">if</span> self._has_right(j):</span><br><span class="line">                right = self._right(j)</span><br><span class="line">                <span class="keyword">if</span> self._heap[left] &lt; self._heap[right]:</span><br><span class="line">                    bigger = right</span><br><span class="line">            <span class="keyword">if</span> self._heap[bigger] &gt; self._heap[j]:</span><br><span class="line">                self._swap(j, bigger)</span><br><span class="line">                self._shiftDown(bigger)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._size == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, item)</span>:</span></span><br><span class="line">        <span class="string">"""插入元素到堆，并维持最大堆特性"""</span></span><br><span class="line">        self._heap.append(item)</span><br><span class="line">        self._size += <span class="number">1</span></span><br><span class="line">        self._shiftUp(self._size - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">extract</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""移除堆顶元素并返回，并维持最大堆特性"""</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.is_empty():</span><br><span class="line">            temp = self._heap[<span class="number">0</span>]</span><br><span class="line">            self._heap[<span class="number">0</span>] = self._heap.pop()</span><br><span class="line">            self._size -= <span class="number">1</span></span><br><span class="line">            self._shiftDown(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> temp</span><br></pre></td></tr></table></figure>
-
-<h4 id="Python中的heapq模块"><a href="#Python中的heapq模块" class="headerlink" title="Python中的heapq模块"></a>Python中的<a href="https://docs.python.org/3.7/library/heapq.html" target="_blank" rel="noopener">heapq模块</a></h4><p>由于文档全英文哈，列举下该模块的一些方法</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>heapq.heappush(heap, item)</td>
-<td align="left">将item放入heap，并重新调整heap以满足heap-order属性，函数执行时间复杂度为O(log n)</td>
-</tr>
-<tr>
-<td>heapq.heappop(heap)</td>
-<td align="left">弹出并返回堆顶元素，并保持堆满足heap-order属性，函数执行的时间复杂度为O(log n)。如果只是访问堆顶元素，heap[0]即可</td>
-</tr>
-<tr>
-<td>heapq.heappushpop(heap, item)</td>
-<td align="left">如果heap不为空，并且item比堆顶的元素大，用item替换堆顶元素，执行下堆操作；返回替换出去的元素。如果item比堆顶元素小，直接返回item。函数执行的时间复杂度为O(log n)。</td>
-</tr>
-<tr>
-<td>heapq.heapreplace(heap, item)</td>
-<td align="left">类似heappushpop()，现将heap[0]保存起来，然后将item赋给heap[0]，执行下堆操作并返回之前保存的heap[0]。所以它并不比较待插入的item和当前堆顶元素大小，就算新插入的item是最小，也不能被返回</td>
-</tr>
-<tr>
-<td>heapq.heapify(x)</td>
-<td align="left">改变未排序的列表，使其满足heap-order属性。这个函数是自底向上的堆构造算法，时间复杂度为O(n)</td>
-</tr>
-<tr>
-<td>heapq.nlargest(n, iterable, key=None)</td>
-<td align="left">从iterable中生产n个最大值的列表并返回。函数执行的时间复杂度为O(n+nlogn)</td>
-</tr>
-<tr>
-<td>heapq.nsmallest(n, iterable, key=None)</td>
-<td align="left">从iterable中生成n个最小值的列表并返回</td>
-</tr>
-</tbody></table>
-<p>注：英文一般般，有些看不懂的地方，参照源代码理解了下，说得可能很蹩脚，但是意思应该大差不差的。</p>
-<hr>
-<h3 id="什么是优先级队列（priority-queue）？"><a href="#什么是优先级队列（priority-queue）？" class="headerlink" title="什么是优先级队列（priority queue）？"></a>什么是优先级队列（priority queue）？</h3><p>包含优先级元素的集合，该集合允许插入任意元素，并允许删除拥有最高优先级的元素。</p>
-<h3 id="优先级队列的Python简单实现"><a href="#优先级队列的Python简单实现" class="headerlink" title="优先级队列的Python简单实现"></a>优先级队列的Python简单实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span>:</span></span><br><span class="line">    <span class="string">"""基于最大堆实现优先级队列"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._maxheap = MaxHeap()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, priority, value)</span>:</span></span><br><span class="line">        item = (priority, value)</span><br><span class="line">        self._maxheap.add(item)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._maxheap.extract()</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<p>优先级队列用堆来实现是很方便的，优先级越高的越靠近堆顶。至于用最大堆还是最小堆，视具体情况而定。</p>
-
+    
+    <a class="article-more-a" href="/2019/08/24/Linux-目录结构及文件基本操作/#more">阅读更多 >></a>
+    
     
 
     
 
-    
-      <div> 
-        <ul class="post-copyright">
-          <li>
-            <strong>本文作者：</strong>
-            JM Chang
-          </li>
-          <li>
-            <strong>本文链接：</strong>
-            <a href="https://achang0121.github.io//2019/09/09/Python-实现常用的数据结构-优先队列/" title="Python -- 实现常用的数据结构 -- 堆和优先级队列" target="_blank">https://achang0121.github.io//2019/09/09/Python-实现常用的数据结构-优先队列/</a>
-          </li>
-          <li>
-            <strong>版权声明： </strong>
-            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-          </li>
-        </ul>
-      </div>
     
 
   </div>
@@ -301,11 +244,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -316,83 +255,10 @@
     
 
     
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/09/09/Python-实现常用的数据结构-优先队列/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/09/10/Python-实现常用的数据结构-映射、哈希表/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Python -- 实现常用的数据结构 -- 映射、哈希表
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/09/08/Python-实现常用的数据结构-树-二叉树/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python -- 实现常用的数据结构-树(二叉树)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -413,14 +279,128 @@
 
 
 
+  
+    <article id="post-Linux-用户及文件权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/08/24/Linux-用户及文件权限管理/" target="_blank">Linux--用户及文件权限管理</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/24/Linux-用户及文件权限管理/" class="archive-article-date">
+        <time datetime="2019-08-24T09:35:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Linux-用户管理"><a href="#Linux-用户管理" class="headerlink" title="Linux 用户管理"></a>Linux 用户管理</h2><h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">who am i 或 who mom likes</span><br></pre></td></tr></table></figure>
+
+<p>who 命令其他常用参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td align="left">打印能打印的全部</td>
+</tr>
+<tr>
+<td>-d</td>
+<td align="left">打印死掉的进程</td>
+</tr>
+<tr>
+<td>-m</td>
+<td align="left">同am i, mom likes</td>
+</tr>
+<tr>
+<td>-q</td>
+<td align="left">打印当前登录用户数及用户名</td>
+</tr>
+<tr>
+<td>-u</td>
+<td align="left">打印当前登录用户登录信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td align="left">打印运行等级</td>
+</tr>
+</tbody></table>
+<hr>
+    
+    <a class="article-more-a" href="/2019/08/24/Linux-用户及文件权限管理/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
 
 
 
 
-
-
-
-
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -458,8 +438,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
