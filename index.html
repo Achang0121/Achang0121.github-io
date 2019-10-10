@@ -219,51 +219,9 @@
 
 <p>对！还是爬博客园时出现的事情。。。</p>
 <p>提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -</p>
-<p>转念一想不对，完整的url应该是像 “<a href="http://www.xxx.com/index.html;user?id=1#comment&quot;。" target="_blank" rel="noopener">http://www.xxx.com/index.html;user?id=1#comment&quot;。</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.xxx.com/index.html;user?id=1#comment'</span></span><br><span class="line"></span><br><span class="line">urlparse(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在ipython中结果为：</span></span><br><span class="line"><span class="comment"># ParseResult(scheme='http', netloc='www.xxx.com', path='/index.html', params='user', query='id=1', fragment='comment')</span></span><br></pre></td></tr></table></figure>
-
-<p>嗖嘎，原来scheme代表的就是协议，出个表记录一下，算备忘了</p>
-<table>
-<thead>
-<tr>
-<th align="center">English</th>
-<th align="center">Chinese</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">scheme</td>
-<td align="center">协议名</td>
-</tr>
-<tr>
-<td align="center">netloc</td>
-<td align="center">域名</td>
-</tr>
-<tr>
-<td align="center">path</td>
-<td align="center">路径</td>
-</tr>
-<tr>
-<td align="center">params</td>
-<td align="center">参数</td>
-</tr>
-<tr>
-<td align="center">query</td>
-<td align="center">查询条件</td>
-</tr>
-<tr>
-<td align="center">fragment</td>
-<td align="center">锚点（这个不大确定来着，不过url中#后面跟的应该是锚点叭）</td>
-</tr>
-</tbody></table>
-<p>好了，问题找到鸟，去网页里头翻翻是不是有这种不完整的url</p>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/bokeyuan5.jpg?raw=true" alt="pic5"></p>
-<p>果然是不完整的url。。。</p>
-<p>那咋弄呢，做个拼接就ok了嘛</p>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/bokeyuan6.jpg?raw=true" alt="pic6"></p>
-<p>上面简单试了一下，a是完整的url（至少包含协议和域名），b缺失了scheme，c只有路径。通过urljoin这个方法能够补全url，完成网络请求。</p>
-<p>对需要下载的图片的url这么加工哈子，就不再raise ValueError(‘Missing scheme in request url: %s’ % self._url)了。。。亲测有效，顺利爬完100页。。。\(^o^)/</p>
-<p>其实urllib.parse里头还挺多好用的函数来着，个人常用的就是urljoin和urlparse了。别的用到时看看源码或者文档就ok了。。。</p>
-
+    
+    <a class="article-more-a" href="/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/#more">阅读更多 >></a>
+    
     
 
     
@@ -1324,11 +1282,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color4">Selenium</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Selenium</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
             <div class="clearfix"></div>

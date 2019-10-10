@@ -9,20 +9,20 @@
   <title>用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - - 转念一想不对，完整的url应该是像 “htt">
+  <meta name="description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -">
 <meta name="keywords" content="Python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url">
 <meta property="og:url" content="https://achang0121.github.io/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - - 转念一想不对，完整的url应该是像 “htt">
+<meta property="og:description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/bokeyuan5.jpg?raw=true">
 <meta property="og:image" content="https://github.com/Achang0121/images_blog/blob/master/bokeyuan6.jpg?raw=true">
-<meta property="og:updated_time" content="2019-10-10T18:25:39.997Z">
+<meta property="og:updated_time" content="2019-10-10T18:29:20.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url">
-<meta name="twitter:description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - - 转念一想不对，完整的url应该是像 “htt">
+<meta name="twitter:description" content="1raise ValueError(&apos;Missing scheme in request url: %s&apos; % self._url)  对！还是爬博客园时出现的事情。。。 提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -">
 <meta name="twitter:image" content="https://github.com/Achang0121/images_blog/blob/master/bokeyuan5.jpg?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
@@ -220,6 +220,8 @@
 
 <p>对！还是爬博客园时出现的事情。。。</p>
 <p>提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -</p>
+<a id="more"></a>
+
 <p>转念一想不对，完整的url应该是像 “<a href="http://www.xxx.com/index.html;user?id=1#comment&quot;。" target="_blank" rel="noopener">http://www.xxx.com/index.html;user?id=1#comment&quot;。</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.xxx.com/index.html;user?id=1#comment'</span></span><br><span class="line"></span><br><span class="line">urlparse(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在ipython中结果为：</span></span><br><span class="line"><span class="comment"># ParseResult(scheme='http', netloc='www.xxx.com', path='/index.html', params='user', query='id=1', fragment='comment')</span></span><br></pre></td></tr></table></figure>
 
@@ -545,11 +547,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color4">Selenium</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Selenium</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
             <div class="clearfix"></div>
