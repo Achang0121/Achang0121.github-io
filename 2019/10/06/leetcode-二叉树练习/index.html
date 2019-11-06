@@ -9,18 +9,18 @@
   <title>leetcode -- 二叉树练习 | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：   输入：      4    /   \   2     7  / \   / \ 1   3 6   9  输出：      4    /   \   7     2  / \   / \ 9   6 3   1 个人解法">
+  <meta name="description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：显示效果不好，就不写了。。。  个人解法   二叉树，它的子树也是二叉树（当然子树的根是内部节点哈）。递归解决这题应该比较容易。   1234567891011121314# Definition for a binary tree">
 <meta name="keywords" content="Python,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode -- 二叉树练习">
 <meta property="og:url" content="https://achang0121.github.io/2019/10/06/leetcode-二叉树练习/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：   输入：      4    /   \   2     7  / \   / \ 1   3 6   9  输出：      4    /   \   7     2  / \   / \ 9   6 3   1 个人解法">
+<meta property="og:description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：显示效果不好，就不写了。。。  个人解法   二叉树，它的子树也是二叉树（当然子树的根是内部节点哈）。递归解决这题应该比较容易。   1234567891011121314# Definition for a binary tree">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-11-06T10:19:29.189Z">
+<meta property="og:updated_time" content="2019-11-06T10:35:46.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode -- 二叉树练习">
-<meta name="twitter:description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：   输入：      4    /   \   2     7  / \   / \ 1   3 6   9  输出：      4    /   \   7     2  / \   / \ 9   6 3   1 个人解法">
+<meta name="twitter:description" content="====2019-10-06 start==== 226. 翻转二叉树 &amp;lt;&amp;lt;&amp;lt;&amp;lt;=== 题目传送门 题目描述   翻转一棵二叉树。   示例：显示效果不好，就不写了。。。  个人解法   二叉树，它的子树也是二叉树（当然子树的根是内部节点哈）。递归解决这题应该比较容易。   1234567891011121314# Definition for a binary tree">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -217,22 +217,17 @@
 <h2 id="226-翻转二叉树-lt-lt-lt-lt-题目传送门"><a href="#226-翻转二叉树-lt-lt-lt-lt-题目传送门" class="headerlink" title="226. 翻转二叉树 &lt;&lt;&lt;&lt;=== 题目传送门"></a><a href="https://leetcode-cn.com/problems/invert-binary-tree/" target="_blank" rel="noopener">226. 翻转二叉树</a> &lt;&lt;&lt;&lt;=== 题目传送门</h2><ul>
 <li><p>题目描述</p>
 <p>  翻转一棵二叉树。</p>
-<p>  示例：</p>
-<p>  输入：</p>
-<pre><code>     4
-   /   \
-  2     7
- / \   / \
-1   3 6   9</code></pre><p>  输出：</p>
-<pre><code>     4
-   /   \
-  7     2
- / \   / \
-9   6 3   1</code></pre></li>
+<p>  示例：显示效果不好，就不写了。。。</p>
+</li>
 <li><p>个人解法</p>
 <p>  二叉树，它的子树也是二叉树（当然子树的根是内部节点哈）。递归解决这题应该比较容易。</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">invertTree</span><span class="params">(self, root: TreeNode)</span> -&gt; TreeNode:</span></span><br><span class="line">        <span class="keyword">if</span> root:</span><br><span class="line">            root.left, root.right = root.right, root.left</span><br><span class="line">            self.invertTree(root.left)</span><br><span class="line">            self.invertTree(root.right)</span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+
 </li>
+</ul>
+<a id="more"></a>
+
+<ul>
 <li><p>大佬解法</p>
 <p>  大都用的是递归解决的，在官方题解里头看到有用迭代去解的。用的队列来实现，BFS（层次遍历二叉树），交换左右子树，直到队列为空。</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">invertTree</span><span class="params">(self, root: TreeNode)</span> -&gt; TreeNode:</span></span><br><span class="line">        <span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">        queue = deque()</span><br><span class="line">        queue.appendleft(root)</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            node = queue.pop()</span><br><span class="line">            node.left, node.right = node.right, node.left</span><br><span class="line">            <span class="keyword">if</span> node.left:</span><br><span class="line">                queue.appendleft(node.left)</span><br><span class="line">            <span class="keyword">if</span> node.right:</span><br><span class="line">                queue.appendleft(node.right)</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作者：powcai</span></span><br><span class="line"><span class="comment"># 链接：https://leetcode-cn.com/problems/invert-binary-tree/solution/dfs-bfs-by-powcai-2/</span></span><br><span class="line"><span class="comment"># 来源：力扣（LeetCode）</span></span><br><span class="line"><span class="comment"># 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span></span><br></pre></td></tr></table></figure>
@@ -526,11 +521,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
