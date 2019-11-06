@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Python -- 实现常用的数据结构 -- 映射、哈希表 | JMChang的个人博客</title>
+  <title>Tag: 算法 | JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="映射(map)的概念map就是存储Key-Value数据对的数据结构(Key,Value),我们可以根据键Key来操作Value。 例子很多啦，比如域名系统DNS将主机名映射到一个IP地址，再比如Python的字典中每个key映射到相关联的对象上面······">
-<meta name="keywords" content="Python,数据结构">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python -- 实现常用的数据结构 -- 映射、哈希表">
-<meta property="og:url" content="https://achang0121.github.io/2019/09/10/Python-实现常用的数据结构-映射、哈希表/index.html">
+  <meta name="description" content="个人学习记录博客">
+<meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JMChang的个人博客">
+<meta property="og:url" content="https://achang0121.github.io/tags/算法/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
-<meta property="og:description" content="映射(map)的概念map就是存储Key-Value数据对的数据结构(Key,Value),我们可以根据键Key来操作Value。 例子很多啦，比如域名系统DNS将主机名映射到一个IP地址，再比如Python的字典中每个key映射到相关联的对象上面······">
+<meta property="og:description" content="个人学习记录博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-09-18T13:53:01.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python -- 实现常用的数据结构 -- 映射、哈希表">
-<meta name="twitter:description" content="映射(map)的概念map就是存储Key-Value数据对的数据结构(Key,Value),我们可以根据键Key来操作Value。 例子很多啦，比如域名系统DNS将主机名映射到一个IP地址，再比如Python的字典中每个key映射到相关联的对象上面······">
+<meta name="twitter:title" content="JMChang的个人博客">
+<meta name="twitter:description" content="个人学习记录博客">
   
     <link rel="alternative" href="/atom.xml" title="JMChang的个人博客" type="application/atom+xml">
   
@@ -184,204 +183,41 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python-实现常用的数据结构-映射、哈希表" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class=" article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/09/12/Python-实现常用的算法与数据结构-排序/" class="archive-article-date">
+        <time datetime="2019-09-12T07:14:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      Python -- 实现常用的数据结构 -- 映射、哈希表
+    <h1 itemprop="name">
+	
+	      <a class="archive-article-title" href="/2019/09/12/Python-实现常用的算法与数据结构-排序/" target="_blank">Python-实现常用的算法与数据结构 -- 排序</a>
+        
     </h1>
   
 
 
-  
-  
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/09/10/Python-实现常用的数据结构-映射、哈希表/" class="archive-article-date">
-        <time datetime="2019-09-09T23:56:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="映射-map-的概念"><a href="#映射-map-的概念" class="headerlink" title="映射(map)的概念"></a>映射(map)的概念</h2><p>map就是存储Key-Value数据对的数据结构(Key,Value),我们可以根据键Key来操作Value。</p>
-<p>例子很多啦，比如域名系统DNS将主机名映射到一个IP地址，再比如Python的字典中每个key映射到相关联的对象上面······</p>
-<a id="more"></a>
-
-<h3 id="map的抽象数据类型"><a href="#map的抽象数据类型" class="headerlink" title="map的抽象数据类型"></a>map的抽象数据类型</h3><ul>
-<li><p>映射M最为重要的5类行为：</p>
-<ul>
-<li><p>M[k] ：如果k存在，则返回在映射M中与键k相对应的值，否则返回KeyError错误。Python中用<strong>getitem</strong>实现</p>
-</li>
-<li><p>M[k] = v ：将映射M中值v与键k关联起来，如果键k已经有关联的值，替换为v。Python中用<strong>setitem</strong>实现。</p>
-</li>
-<li><p>del M[k] ：从映射M中删除键为k的元组，如果k不存在，返回KeyError错误。Python中用<strong>delitem</strong>实现。</p>
-</li>
-<li><p>len(M) ：返回映射M中元组的数量。Python中用<strong>len</strong>实现。</p>
-</li>
-<li><p>iter(m) ：默认的对一个映射迭代生成其中所包含的所有键的序列。Python中用<strong>iter</strong>实现。</p>
-</li>
-</ul>
-</li>
-<li><p>映射的一些其他行为：</p>
-<ul>
-<li><p>k in M ：如果映射M中包含键为k的元组，返回True。Python中用<strong>contains</strong>实现。</p>
-</li>
-<li><p>M.get(k, d=None) ：若映射M中存在键k，返回M[k]；否则返回缺省值d。</p>
-</li>
-<li><p>M.setdefault(k, d) ：如果映射M中存在键k，返回M[k]；如果键k不存在，则设置M[k]=d。</p>
-</li>
-<li><p>M.pop(k, d=None) ：从映射M中删除键k的元组，并返回键k对应的值。若键k不存在，返回缺省值d。</p>
-</li>
-<li><p>M.clear() ：清空映射M</p>
-</li>
-<li><p>M.keys() ：返回一个含有映射M中所有键的集合</p>
-</li>
-<li><p>M.values() ：返回一个含有映射M中所有值的集合</p>
-</li>
-<li><p>M.items() ：返回一个含有映射M中所有键值对元组的集合</p>
-</li>
-<li><p>等等。。。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>map的可以通过list来实现，挺简单的。只是<strong>getitem</strong>,<strong>setitem</strong>和<strong>delitem</strong>都需要遍历列表，来匹配键，时间复杂度几乎都是O(n)。有个更好的选择，用哈希表实现map。Python的dict就是用哈希表实现的。</p>
-<h2 id="哈希表（散列表）"><a href="#哈希表（散列表）" class="headerlink" title="哈希表（散列表）"></a>哈希表（散列表）</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>百度百科：散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。</p>
-<h3 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h3><ul>
-<li><p>哈希码：将一个键值映射到一个整数</p>
-<ul>
-<li><p>在Python中，计算哈希码的标准机制是一个内置签名hash(x)的函数，该函数返回一个整型值作为对象x的哈希码。</p>
-</li>
-<li><p>Python中只有不可变的数据类型是可哈希的，包括有int，float，str，tuple和frozenset等等。hash(x)，如果x是可变类型，则发送TypeError。</p>
-</li>
-<li><p>默认，用户定义的类的实例是不可哈希的。通过在自定义类中实现<strong>hash</strong>可使得该类的实例可哈希，返回的哈希码应该是反映这个实例的不可变属性。</p>
-</li>
-</ul>
-</li>
-<li><p>压缩函数：将哈希码映射到[0, N-1]这样的一个区间里</p>
-<ul>
-<li><p>划分方法：将一个整数i映射到N–&gt; i mod N</p>
-</li>
-<li><p>MAD方法(Multiply-Add-and-Divide)：[(ai+b) mod p] mod N<br>对i进行映射，p是比N大的素数，a、b是从区间[0, p-1]中任意选择的整数</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="处理哈希冲突"><a href="#处理哈希冲突" class="headerlink" title="处理哈希冲突"></a>处理哈希冲突</h3><ul>
-<li><p>分离链表：如果存在h(a) == h(b)，则用一个链表将a和b‘串在一起’。</p>
-</li>
-<li><p>开放寻址</p>
-<ul>
-<li><p>线性探测<br>大意是，如果j=h(x)，j已经存在了，则会 (j+1) mod N···直到找到空的槽位。</p>
-</li>
-<li><p>二次探测</p>
-</li>
-<li><p>双哈希策略</p>
-</li>
-<li><p>等等</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="负载因子、rehash"><a href="#负载因子、rehash" class="headerlink" title="负载因子、rehash"></a>负载因子、rehash</h3><ul>
-<li><p>负载因子：已用槽位数/总槽位数，当负载因子越接近1的时候，冲突越容易发生。使用分离链表是，需要保持负载因子小于0.9；使用线性探测，需要保持负载因子小于2/3</p>
-</li>
-<li><p>rehash：当哈希表的一个插入操作引起负载因子超出阈值的时候，需要rehash。当在一个新表上重新hash时，扩容至少1倍</p>
-</li>
-</ul>
-<h3 id="hashmap的简单实现（自己尝试写了，总感觉不好。就照搬了别人写的，传送门）"><a href="#hashmap的简单实现（自己尝试写了，总感觉不好。就照搬了别人写的，传送门）" class="headerlink" title="hashmap的简单实现（自己尝试写了，总感觉不好。就照搬了别人写的，传送门）"></a>hashmap的简单实现（自己尝试写了，总感觉不好。就照搬了别人写的，<a href="https://blog.csdn.net/qq_16000815/article/details/81317314" target="_blank" rel="noopener">传送门</a>）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Slot</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""表示槽位的类"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        self.key = key</span><br><span class="line">        self.value = value</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashTable</span>:</span></span><br><span class="line">    <span class="string">"""定义一个哈希表类"""</span></span><br><span class="line">    UNUSED = <span class="literal">None</span>   <span class="comment"># 槽没被使用过(槽指的是数组中的一个位置)</span></span><br><span class="line">    EMPTY = Slot(<span class="literal">None</span>, <span class="literal">None</span>)    <span class="comment"># 使用过却被删除了</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n=<span class="number">13</span>)</span>:</span></span><br><span class="line">        self._table = [<span class="literal">None</span>] * n     <span class="comment"># 初始化槽没被使用过</span></span><br><span class="line">        self.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setitem__</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        self.add(key, value)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> self:</span><br><span class="line">            <span class="keyword">raise</span> KeyError</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.get(key)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_load_factor</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""负载因子(load factor)，当负载因子超过某一阈值时，需要进行重哈希操作"""</span></span><br><span class="line">        <span class="keyword">return</span> self.length / float(len(self._table))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.length</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_hash</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""定义hash函数，返回哈希表数组的索引"""</span></span><br><span class="line">        <span class="keyword">return</span> abs(hash(key)) % len(self._table)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_find_key</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""搜寻key键，如果存在，返回key键对应的索引，否则返回None"""</span></span><br><span class="line">        index = self._hash(key)</span><br><span class="line">        _len = len(self._table)</span><br><span class="line">        <span class="keyword">while</span> self._table[index] <span class="keyword">is</span> <span class="keyword">not</span> HashTable.UNUSED:</span><br><span class="line">            <span class="keyword">if</span> self._table[index] <span class="keyword">is</span> HashTable.EMPTY:</span><br><span class="line">                index = (index*<span class="number">5</span> + <span class="number">1</span>) % _len     <span class="comment"># 解决哈希冲突的一种方式</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> self._table[index].key == key:</span><br><span class="line">                <span class="keyword">return</span> index</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                index = (index*<span class="number">5</span> + <span class="number">1</span>) % _len</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_find_slot_for_insert</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""寻找哈希表中可以插入的槽"""</span></span><br><span class="line">        index = self._hash(key)</span><br><span class="line">        _len = len(self._table)</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self._slot_can_insert(index):</span><br><span class="line">            index = (index * <span class="number">5</span> + <span class="number">1</span>) % _len  <span class="comment"># 解决哈希冲突的一种方式</span></span><br><span class="line">        <span class="keyword">return</span>  index</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_slot_can_insert</span><span class="params">(self, index)</span>:</span></span><br><span class="line">        <span class="string">"""判断发现的槽能否插入，空槽或从未被使用即返回True"""</span></span><br><span class="line">        <span class="keyword">return</span> self._table[index] <span class="keyword">is</span> HashTable.EMPTY <span class="keyword">or</span> self._table[index] <span class="keyword">is</span> HashTable.UNUSED</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__contains__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""in 操作符，判断key是否在hash表里，如果存在返回其索引，否则返回None"""</span></span><br><span class="line">        index = self._find_key(key)</span><br><span class="line">        <span class="keyword">return</span> index <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="string">"""添加元素操作，有 key 则更新，否则插入"""</span></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self:     <span class="comment"># 调用__contains__判断key是否在哈希表中</span></span><br><span class="line">            index = self._find_key(key)     <span class="comment"># 搜寻key的索引</span></span><br><span class="line">            self._table[index].value = value    <span class="comment"># 更新哈希表中key对应的value</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">else</span>:   <span class="comment"># 如果key不再hash表中，则添加元素Slot(key,value),并更新长度</span></span><br><span class="line">            index = self._find_slot_for_insert(key)</span><br><span class="line">            self._table[index] = Slot(key, value)</span><br><span class="line">            self.length += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> self._load_factor &gt;= <span class="number">0.8</span>:    <span class="comment"># 如果装载因子大于0.8，则进行重哈希操作</span></span><br><span class="line">                self._rehash()</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_rehash</span><span class="params">(self)</span>:</span></span><br><span class="line">        old_table = self._table</span><br><span class="line">        new_size = len(self._table) * <span class="number">2</span></span><br><span class="line">        self._table = [HashTable.UNUSED] * new_size   <span class="comment"># 定义新的哈希表</span></span><br><span class="line">        self.length = <span class="number">0</span>     <span class="comment"># 初始长度为0</span></span><br><span class="line">        <span class="keyword">for</span> slot <span class="keyword">in</span> old_table:  <span class="comment"># 把原来哈希表里不为空槽的数据重新插入到新的哈希表里</span></span><br><span class="line">            <span class="keyword">if</span> slot <span class="keyword">is</span> <span class="keyword">not</span> HashTable.UNUSED <span class="keyword">and</span> slot <span class="keyword">is</span> <span class="keyword">not</span> HashTable.EMPTY:</span><br><span class="line">                index = self._find_slot_for_insert(slot.key)</span><br><span class="line">                self._table[index] = slot</span><br><span class="line">                self.length += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key, default=None)</span>:</span></span><br><span class="line">        <span class="string">"""获取 key 的值，不存在返回默认值 None"""</span></span><br><span class="line">        index = self._find_key(key)</span><br><span class="line">        <span class="keyword">if</span> index <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> default</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._table[index].value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""删除一个 key，这里其实不是真删除，而是标记为 Empty"""</span></span><br><span class="line">        index = self._find_key(key)</span><br><span class="line">        <span class="keyword">if</span> index <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">raise</span> KeyError()</span><br><span class="line">        value = self._table[index].value</span><br><span class="line">        self.length -= <span class="number">1</span></span><br><span class="line">        self._table[index] = HashTable.EMPTY</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> slot <span class="keyword">in</span> self._table:</span><br><span class="line">            <span class="keyword">if</span> slot <span class="keyword">not</span> <span class="keyword">in</span> (HashTable.EMPTY,HashTable.UNUSED):</span><br><span class="line">                <span class="keyword">yield</span> slot.key</span><br></pre></td></tr></table></figure>
-
-<p>个人这一遍哈希表了解下列，感觉哈希表的强大与否，哈希函数的构造与冲突处理十分的关键。不过这暂时是咱能力之外的事情。看看有没有什么现成的好用的哈希函数啥的。。。</p>
-<h2 id="Python的hashlib模块了解一哈"><a href="#Python的hashlib模块了解一哈" class="headerlink" title="Python的hashlib模块了解一哈"></a>Python的<a href="https://docs.python.org/3.7/library/hashlib.html" target="_blank" rel="noopener">hashlib模块</a>了解一哈</h2><p>模块描述里头说，这个模块实现了许多的安全散列和消息摘要的算法。</p>
-<ul>
-<li><p>hashlib提供了两个常量，告诉我们都有哪些哈希函数</p>
-<ul>
-<li><p>hashlib.algorithms_guaranteed：它返回了一个包含在所有平台上保证由此模块支持的哈希算法名称的集合。</p>
-</li>
-<li><p>hashlib.algorithms_available：包含正在运行的Python解释器中可用的哈希算法名称的集合。lgorithms_guaranteed是它的子集。</p>
-</li>
-</ul>
-</li>
-<li><p>一个哈希实例具有的一些属性和方法</p>
-<table>
-<thead>
-<tr>
-<th>属性or方法</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>hash.digest_size</td>
-<td align="left">生产的哈希的大小（单位：字节）–常量属性</td>
-</tr>
-<tr>
-<td>hash.block_size</td>
-<td align="left">哈希算法的内部块大小（单位：字节）–常量属性</td>
-</tr>
-<tr>
-<td>hash.name</td>
-<td align="left">此哈希的规范名称，始终是小写</td>
-</tr>
-<tr>
-<td>hash.update(data)</td>
-<td align="left">简单易懂，更新哈希对象。data的描述是<a href="https://docs.python.org/3.7/glossary.html#term-bytes-like-object" target="_blank" rel="noopener">bytes-like object</a></td>
-</tr>
-<tr>
-<td>hash.digest()</td>
-<td align="left">返回到调用该函数为止的，update过的数据的摘要。</td>
-</tr>
-<tr>
-<td>hash.hexdigest()</td>
-<td align="left">和digest()有点区别：第一、返回的是双倍长度的字符串；第二、只包含16进制的数字</td>
-</tr>
-<tr>
-<td>hash.copy()</td>
-<td align="left">返回哈希对象的副本</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="两种常见的摘要算法md5和SHA1"><a href="#两种常见的摘要算法md5和SHA1" class="headerlink" title="两种常见的摘要算法md5和SHA1"></a>两种常见的摘要算法md5和SHA1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">md5 = hashlib.md5()</span><br><span class="line">md5.update(<span class="string">'hello'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">md5.update(<span class="string">'world'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">print(md5.hexdigest())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 除了初始化的方式，操作都差不多</span></span><br><span class="line">s = hashlib.sha1()</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017686752491744" target="_blank" rel="noopener">hashlib廖雪峰</a>这里的说得挺清楚了，做个标记。。。</p>
-
-    
-
-    
-
-    
-      <div> 
-        <ul class="post-copyright">
-          <li>
-            <strong>本文作者：</strong>
-            JM Chang
-          </li>
-          <li>
-            <strong>本文链接：</strong>
-            <a href="https://achang0121.github.io//2019/09/10/Python-实现常用的数据结构-映射、哈希表/" title="Python -- 实现常用的数据结构 -- 映射、哈希表" target="_blank">https://achang0121.github.io//2019/09/10/Python-实现常用的数据结构-映射、哈希表/</a>
-          </li>
-          <li>
-            <strong>版权声明： </strong>
-            本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-          </li>
-        </ul>
-      </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -391,122 +227,25 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://achang0121.github.io/2019/09/10/Python-实现常用的数据结构-映射、哈希表/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/09/11/Python-实现常用的数据结构-二叉搜索树/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Python -- 实现常用的数据结构 -- 二叉搜索树
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/09/09/Python-实现常用的数据结构-优先队列/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python -- 实现常用的数据结构 -- 堆和优先级队列</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -545,9 +284,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
