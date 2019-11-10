@@ -627,6 +627,423 @@
 
 
   
+    <article id="post-LeetCode-字符串的练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/07/LeetCode-字符串的练习/" target="_blank">LeetCode -- 字符串的练习</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/07/LeetCode-字符串的练习/" class="archive-article-date">
+        <time datetime="2019-10-07T07:05:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>====2019-10-07 start====</p>
+<p><a href="https://leetcode-cn.com/problems/reverse-string/" target="_blank" rel="noopener">344. 反转字符串</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>题目描述</p>
+<p>  编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。</p>
+<p>  不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。</p>
+<p>  你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。</p>
+<p>  示例 1：</p>
+<p>  输入：[“h”,”e”,”l”,”l”,”o”]<br>  输出：[“o”,”l”,”l”,”e”,”h”]<br>  示例 2：</p>
+<p>  输入：[“H”,”a”,”n”,”n”,”a”,”h”]<br>  输出：[“h”,”a”,”n”,”n”,”a”,”H”]</p>
+</li>
+<li><p>题解</p>
+<p>  耍无赖的写法，内置的方法就能搞定。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s: List[str])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Do not return anything, modify s in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        s.reverse()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 换个写法(头尾指针，直到两个指针相遇或者相错，退出循环)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s: List[str])</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Do not return anything, modify s in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        beg = <span class="number">0</span></span><br><span class="line">        end = len(s) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> beg &lt; end:</span><br><span class="line">            s[beg], s[end] = s[end], s[beg]</span><br><span class="line">            beg += <span class="number">1</span></span><br><span class="line">            end -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><a href="https://leetcode-cn.com/problems/valid-palindrome/" target="_blank" rel="noopener">125. 验证回文串</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>题目描述<br>  给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>  说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<p>  示例 1:</p>
+<p>  输入: “A man, a plan, a canal: Panama”<br>  输出: true<br>  示例 2:</p>
+<p>  输入: “race a car”<br>  输出: false</p>
+</li>
+<li><p>题解</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="comment"># 先处理下s，将非字母和数字的字符过滤掉</span></span><br><span class="line">        s = <span class="string">''</span>.join(re.findall(<span class="string">r'[a-zA-Z0-9]'</span>, s)).lower()</span><br><span class="line">        <span class="comment"># 头尾指针</span></span><br><span class="line">        beg, end = <span class="number">0</span>, len(s) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> beg &lt; end:</span><br><span class="line">            <span class="keyword">if</span> s[beg] == s[end]:</span><br><span class="line">                beg += <span class="number">1</span></span><br><span class="line">                end -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>====2019-10-07 end====</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode-堆的练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/07/LeetCode-堆的练习/" target="_blank">LeetCode -- 堆的练习</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/07/LeetCode-堆的练习/" class="archive-article-date">
+        <time datetime="2019-10-07T06:41:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>====2019-10-07 start====</p>
+<p><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">23. 合并K个排序链表</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li>题目描述<br>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</li>
+</ul>
+<p>示例:</p>
+<p>输入:</p>
+<p>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]</p>
+<p>输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
+<ul>
+<li>题解</li>
+</ul>
+<p>额，这个想起来也不算难，读取所有链表节点的值，然后构造最小堆，一直取堆顶元素就能获得结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heapify, heappop</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span><span class="params">(self, lists: List[ListNode])</span> -&gt; ListNode:</span></span><br><span class="line">        <span class="comment"># 获取所有节点</span></span><br><span class="line">        nodes = []</span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> lists:</span><br><span class="line">            <span class="keyword">while</span> node:</span><br><span class="line">                nodes.append(node.val)</span><br><span class="line">                node = node.next</span><br><span class="line">        <span class="comment"># 由于报错，添加了获取后的节点值列表是否为空，如果是空，则直接返回</span></span><br><span class="line">        <span class="keyword">if</span> nodes == []:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 构造最小堆</span></span><br><span class="line">        heapify(nodes)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 构造结果链表</span></span><br><span class="line">        head = ListNode(heappop(nodes))</span><br><span class="line">        cur_node = head</span><br><span class="line">        <span class="keyword">while</span> nodes:</span><br><span class="line">            next_node = ListNode(heappop(nodes))</span><br><span class="line">            cur_node.next = next_node</span><br><span class="line">            cur_node = next_node</span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+
+<p>====2019-10-07 end====</p>
+<p>====2019-10-09 end====<br><a href="https://leetcode-cn.com/problems/top-k-frequent-elements/" target="_blank" rel="noopener">347. 前 K 个高频元素</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>描述</p>
+<p>  给定一个非空的整数数组，返回其中出现频率前 k 高的元素。</p>
+<p>  示例 1:</p>
+<blockquote>
+<p>输入: nums = [1,1,1,2,2,3], k = 2</p>
+<p>输出: [1,2]</p>
+</blockquote>
+<p>  示例 2:</p>
+<blockquote>
+<p>输入: nums = [1], k = 1</p>
+<p>输出: [1]</p>
+</blockquote>
+<p>  说明：</p>
+<p>  你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。<br>  你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。</p>
+</li>
+<li><p>题解</p>
+</li>
+</ul>
+<p>思路是比较清晰的，因为是用Python来解决。就跟闹着玩一样，用Counter统计出元素出现频率，用heapq处理一下就能解决。</p>
+<p>和正常的操作比过于简单了。先建立映射，再维护前k大的一个堆。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 耍赖的写法哈，不过确实香。O(∩_∩)O哈哈~</span></span><br><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">topKFrequent</span><span class="params">(self, nums, k: int)</span>:</span></span><br><span class="line">        counts = Counter(nums)</span><br><span class="line">        <span class="comment"># 这里的key需要传入的是func（函数哈）</span></span><br><span class="line">        <span class="keyword">return</span> heapq.nlargest(k, counts.keys(), key=counts.get)</span><br></pre></td></tr></table></figure>
+
+<p>====2019-10-09 end====</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode-栈和队列的练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/07/LeetCode-栈和队列的练习/" target="_blank">LeetCode -- 栈和队列的练习</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/07/LeetCode-栈和队列的练习/" class="archive-article-date">
+        <time datetime="2019-10-07T06:08:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>====2019-10-07 start====</p>
+<p><a href="https://leetcode-cn.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener">232. 用栈实现队列</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li>题目描述<br>使用栈实现队列的下列操作：</li>
+</ul>
+<p>push(x) – 将一个元素放入队列的尾部。<br>pop() – 从队列首部移除元素。<br>peek() – 返回队列首部的元素。<br>empty() – 返回队列是否为空。<br>示例:</p>
+<p>MyQueue queue = new MyQueue();</p>
+<p>queue.push(1);<br>queue.push(2);<br>queue.peek();  // 返回 1<br>queue.pop();   // 返回 1<br>queue.empty(); // 返回 false<br>说明:</p>
+<p>你只能使用标准的栈操作 – 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。<br>你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。<br>假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。</p>
+<ul>
+<li>题解</li>
+</ul>
+<p>用双栈（后进先出）来实现一个队列（先进先出）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line">    <span class="string">"""用deque来模拟一个栈"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.items = deque()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        self.items.append(val)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.items[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.items) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.stack_left = Stack()</span><br><span class="line">        self.stack_right = Stack()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, x: int)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Push element x to the back of queue.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.stack_left.push(x)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span> -&gt; int:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Removes the element from in front of queue and returns that element.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack_right.empty():</span><br><span class="line">            <span class="keyword">return</span> self.stack_right.pop()</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stack_left.empty():</span><br><span class="line">            val = self.stack_left.pop()</span><br><span class="line">            self.stack_right.push(val)</span><br><span class="line">        <span class="keyword">return</span> self.stack_right.pop()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span> -&gt; int:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get the front element.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.stack_right.empty():</span><br><span class="line">            <span class="keyword">return</span> self.stack_right.top()</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stack_left.empty():</span><br><span class="line">            val = self.stack_left.pop()</span><br><span class="line">            self.stack_right.push(val)</span><br><span class="line">        <span class="keyword">return</span> self.stack_right.top()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns whether the queue is empty.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.stack_left.empty() <span class="keyword">and</span> self.stack_right.empty()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your MyQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = MyQueue()</span></span><br><span class="line"><span class="comment"># obj.push(x)</span></span><br><span class="line"><span class="comment"># param_2 = obj.pop()</span></span><br><span class="line"><span class="comment"># param_3 = obj.peek()</span></span><br><span class="line"><span class="comment"># param_4 = obj.empty()</span></span><br></pre></td></tr></table></figure>
+
+<p>====2019-10-07 end====</p>
+<p>====2019-10-09 start====</p>
+<p><a href="https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/865/" target="_blank" rel="noopener">设计循环队列</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>描述</p>
+<p>  设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为“环形缓冲器”。</p>
+<p>  循环队列的一个好处是我们可以利用这个队列之前用过的空间。在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列前面仍有空间。但是使用循环队列，我们能使用这些空间去存储新的值。</p>
+<p>  你的实现应该支持如下操作：</p>
+<ul>
+<li><p>MyCircularQueue(k): 构造器，设置队列长度为 k 。</p>
+</li>
+<li><p>Front: 从队首获取元素。如果队列为空，返回 -1 。</p>
+</li>
+<li><p>Rear: 获取队尾元素。如果队列为空，返回 -1 。</p>
+</li>
+<li><p>enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真。</p>
+</li>
+<li><p>deQueue(): 从循环队列中删除一个元素。如果成功删除则返回真。</p>
+</li>
+<li><p>isEmpty(): 检查循环队列是否为空。</p>
+</li>
+<li><p>isFull(): 检查循环队列是否已满。</p>
+<p>提示：</p>
+</li>
+<li><p>所有的值都在 0 至 1000 的范围内；</p>
+</li>
+<li><p>操作数将在 1 至 1000 的范围内；</p>
+</li>
+<li><p>请不要使用内置的队列库。</p>
+</li>
+</ul>
+</li>
+<li><p>实现</p>
+<p>  已通过网站验证，就不往上加测试代码了</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularQueue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, k: int)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here. Set the size of the queue to be k.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.que = []</span><br><span class="line">        self.max_size = k</span><br><span class="line">        self.size = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enQueue</span><span class="params">(self, value: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Insert an element into the circular queue. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(self.que) &lt; self.max_size:</span><br><span class="line">            self.que.append(value)</span><br><span class="line">            self.size += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deQueue</span><span class="params">(self)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Delete an element from the circular queue. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(self.que) &gt; <span class="number">0</span>:</span><br><span class="line">            self.que.pop(<span class="number">0</span>)</span><br><span class="line">            self.size -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Front</span><span class="params">(self)</span> -&gt; int:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get the front item from the queue.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.que[<span class="number">0</span>] <span class="keyword">if</span> self.que <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Rear</span><span class="params">(self)</span> -&gt; int:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get the last item from the queue.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.que[<span class="number">-1</span>] <span class="keyword">if</span> self.que <span class="keyword">else</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Checks whether the circular queue is empty or not.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.size == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span> -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Checks whether the circular queue is full or not.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.size == self.max_size</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><a href="https://leetcode-cn.com/problems/valid-parentheses/" target="_blank" rel="noopener">20. 有效的括号</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>描述</p>
+<p>  给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>  有效字符串需满足：</p>
+<ul>
+<li><p>左括号必须用相同类型的右括号闭合。</p>
+</li>
+<li><p>左括号必须以正确的顺序闭合。</p>
+</li>
+<li><p>注意空字符串可被认为是有效字符串。</p>
+<p>示例 1:</p>
+<blockquote>
+<p>输入: “()”</p>
+<p>输出: true</p>
+</blockquote>
+<p>示例 2:</p>
+<blockquote>
+<p>输入: “()[]{}”</p>
+<p>输出: true</p>
+</blockquote>
+<p>示例 3:</p>
+<blockquote>
+<p>输入: “(]”</p>
+<p>输出: false</p>
+</blockquote>
+<p>示例 4:</p>
+<blockquote>
+<p>输入: “([)]”</p>
+<p>输出: false</p>
+</blockquote>
+<p>示例 5:</p>
+<blockquote>
+<p>输入: “{[]}”</p>
+<p>输出: true</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>题解</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="comment"># 如果字符串的长度是奇数，则直接返回False</span></span><br><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># 这个映射是真的妙，省了多少的判断啊</span></span><br><span class="line">        mapping = &#123;<span class="string">')'</span>: <span class="string">'('</span>, <span class="string">']'</span>: <span class="string">'['</span>, <span class="string">'&#125;'</span>: <span class="string">'&#123;'</span>&#125;</span><br><span class="line">        <span class="comment"># 大体是这样的，如果是左括号就入栈，如果是右括号就和mapping[栈顶元素]比较</span></span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 判断char是左括号还是右括号</span></span><br><span class="line">            <span class="keyword">if</span> char <span class="keyword">in</span> mapping:</span><br><span class="line">                top_element = stack.pop() <span class="keyword">if</span> stack <span class="keyword">else</span> <span class="string">'是啥不重要'</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 如果配对不成功，返回False</span></span><br><span class="line">                <span class="keyword">if</span> mapping[char] != top_element:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(char)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> stack</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = Solution()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">'()'</span>) <span class="keyword">is</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">"()[]&#123;&#125;"</span>) <span class="keyword">is</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">"(]"</span>) <span class="keyword">is</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">"([)]"</span>) <span class="keyword">is</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">"&#123;[]&#125;"</span>) <span class="keyword">is</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">assert</span> s.isValid(<span class="string">"&#123;[&#123;[]&#125;&#123;[]&#125;&#123;[]]&#125;"</span>) <span class="keyword">is</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<p>  note： 自己写的太过丑陋，理解后照搬官方解答的处理方法，真滴好用。。。</p>
+</li>
+</ul>
+<p>====2019-10-09 end====</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode-二叉树练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -810,273 +1227,9 @@
 
 
   
-    <article id="post-Python-实现常用的算法与数据结构-排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/12/Python-实现常用的算法与数据结构-排序/" target="_blank">Python-实现常用的算法与数据结构 -- 排序</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/12/Python-实现常用的算法与数据结构-排序/" class="archive-article-date">
-        <time datetime="2019-09-12T07:14:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>排序是一个非常经典的问题，它以一定的顺序对一个数组（或一个列表）中的项进行重新排序（可以进行比较，例如整数，浮点数，字符串等）（增加，非递减，递减， 增加，词典等）。</p>
-    
-    <a class="article-more-a" href="/2019/09/12/Python-实现常用的算法与数据结构-排序/#more">阅读更多 >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python-实现常用的数据结构-二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/11/Python-实现常用的数据结构-二叉搜索树/" target="_blank">Python -- 实现常用的数据结构 -- 二叉搜索树</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/11/Python-实现常用的数据结构-二叉搜索树/" class="archive-article-date">
-        <time datetime="2019-09-11T15:37:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-11</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="二叉搜索树（Binary-Search-Tree）"><a href="#二叉搜索树（Binary-Search-Tree）" class="headerlink" title="二叉搜索树（Binary-Search-Tree）"></a>二叉搜索树（Binary-Search-Tree）</h2><p>定义是这样的：它的每个节点包含一个key和它附带的value。对于一棵二叉搜索树的内部节点V：</p>
-<ul>
-<li><p>所有key小于V的都被存在V的左子树</p>
-</li>
-<li><p>所有key大于V的都被存在V的右子树</p>
-</li>
-<li><p>如果中序遍历二叉搜索树，输出的顺序刚好是有序的(从小到大)</p>
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/09/11/Python-实现常用的数据结构-二叉搜索树/#more">阅读更多 >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python-实现常用的数据结构-映射、哈希表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/2019/09/10/Python-实现常用的数据结构-映射、哈希表/" target="_blank">Python -- 实现常用的数据结构 -- 映射、哈希表</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/10/Python-实现常用的数据结构-映射、哈希表/" class="archive-article-date">
-        <time datetime="2019-09-09T23:56:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="映射-map-的概念"><a href="#映射-map-的概念" class="headerlink" title="映射(map)的概念"></a>映射(map)的概念</h2><p>map就是存储Key-Value数据对的数据结构(Key,Value),我们可以根据键Key来操作Value。</p>
-<p>例子很多啦，比如域名系统DNS将主机名映射到一个IP地址，再比如Python的字典中每个key映射到相关联的对象上面······</p>
-    
-    <a class="article-more-a" href="/2019/09/10/Python-实现常用的数据结构-映射、哈希表/#more">阅读更多 >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1204,10 +1357,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -1216,7 +1365,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,6 +1374,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
