@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="JMChang的个人博客">
 <meta property="og:description" content="====2019-10-07 start==== 232. 用栈实现队列 &amp;lt;&amp;lt;&amp;lt;&amp;lt; 题目传送门  题目描述使用栈实现队列的下列操作：  push(x) – 将一个元素放入队列的尾部。pop() – 从队列首部移除元素。peek() – 返回队列首部的元素。empty() – 返回队列是否为空。示例: MyQueue queue = new MyQueue(); queue.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-11-10T09:36:32.384Z">
+<meta property="og:updated_time" content="2019-11-29T07:41:22.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode -- 栈和队列的练习">
 <meta name="twitter:description" content="====2019-10-07 start==== 232. 用栈实现队列 &amp;lt;&amp;lt;&amp;lt;&amp;lt; 题目传送门  题目描述使用栈实现队列的下列操作：  push(x) – 将一个元素放入队列的尾部。pop() – 从队列首部移除元素。peek() – 返回队列首部的元素。empty() – 返回队列是否为空。示例: MyQueue queue = new MyQueue(); queue.">
@@ -222,6 +222,8 @@
 <p>MyQueue queue = new MyQueue();</p>
 <p>queue.push(1);<br>queue.push(2);<br>queue.peek();  // 返回 1<br>queue.pop();   // 返回 1<br>queue.empty(); // 返回 false<br>说明:</p>
 <p>你只能使用标准的栈操作 – 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。<br>你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。<br>假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。</p>
+<a id="more"></a>
+
 <ul>
 <li>题解</li>
 </ul>
@@ -312,6 +314,31 @@
 </li>
 </ul>
 <p>====2019-10-09 end====</p>
+<p>====2019-10-15 end====</p>
+<p><a href="https://leetcode-cn.com/problems/min-stack/" target="_blank" rel="noopener">155. 最小栈</a> &lt;&lt;&lt;&lt; 题目传送门</p>
+<ul>
+<li><p>描述</p>
+<p>  设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<p>  push(x) – 将元素 x 推入栈中。</p>
+<p>  pop() – 删除栈顶的元素。</p>
+<p>  top() – 获取栈顶元素。</p>
+<p>  getMin() – 检索栈中的最小元素。</p>
+<p>  示例:</p>
+<p>  MinStack minStack = new MinStack();</p>
+<p>  minStack.push(-2);</p>
+<p>  minStack.push(0);</p>
+<p>  minStack.push(-3);</p>
+<p>  minStack.getMin();   –&gt; 返回 -3.</p>
+<p>  minStack.pop();</p>
+<p>  minStack.top();      –&gt; 返回 0.</p>
+<p>  minStack.getMin();   –&gt; 返回 -2.</p>
+</li>
+<li><p>题解</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.data = []</span><br><span class="line">        self.helper = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.data.append(x)</span><br><span class="line">        <span class="keyword">if</span> len(self.helper) == <span class="number">0</span> <span class="keyword">or</span> x &lt;= self.helper[<span class="number">-1</span>]:</span><br><span class="line">            self.helper.append(x)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        top = self.data.pop()</span><br><span class="line">        <span class="keyword">if</span> self.helper <span class="keyword">and</span> top == self.helper[<span class="number">-1</span>]:</span><br><span class="line">            self.helper.pop()</span><br><span class="line">        <span class="keyword">return</span> top</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">top</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.data:</span><br><span class="line">            <span class="keyword">return</span> self.data[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getMin</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.helper:</span><br><span class="line">            <span class="keyword">return</span> self.helper[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = MinStack()</span></span><br><span class="line"><span class="comment"># obj.push(x)</span></span><br><span class="line"><span class="comment"># obj.pop()</span></span><br><span class="line"><span class="comment"># param_3 = obj.top()</span></span><br><span class="line"><span class="comment"># param_4 = obj.getMin()</span></span><br></pre></td></tr></table></figure>
+
+<p>====2019-10-15 end====</p>
 
     
 
@@ -590,6 +617,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -607,10 +638,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
