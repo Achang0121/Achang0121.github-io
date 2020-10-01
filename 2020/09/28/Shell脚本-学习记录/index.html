@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s">
+     <link rel="shortcut icon" href="/img/favicon.ico">
+    <title>
+        JMChang的个人博客
+    </title>
+    <meta name="description" content="嘿，我是刘训灼～这是我的子站，用于展示写的Hexo主题：Coder。欢迎访问！">
+    <meta name="keywords" content="Blog,Hexo,Theme,刘训灼,LiuXunzhuo">
+    <link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            Shell脚本 -- 学习记录
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>对于Shell这玩意，真是早有所闻，近来凑巧了解bash一波，记录一哈了~~</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li><p>变量的设置规则</p>
+<ol>
+<li>用 = 来赋值</li>
+<li>赋值号（=）两边不能直接接空格，个人Python空惯了，有点不习惯</li>
+<li>变量名只能是英文字母和数字，且数字不能作为变量名的开头</li>
+<li>变量值中有空格，需要使用引号括起来；其中单引号内的特殊字符失去其特殊性变成纯文本，双引号内的特殊符号依然保持原本的特性</li>
+<li>反斜杠 \ 为转义符号</li>
+<li>`command` 或 $(command) 可嵌套在某条命令中用于提供辅助</li>
+<li>更改变量内容，用${var}或”$var”先获取之前的值进行更改，再赋值回去</li>
+<li>某变量需要在其他子进程执行，需将其export成环境变量</li>
+<li>通常全大写变量为系统默认变量，自定义变量为小写字符</li>
+<li>用unset var 释放变量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line"><span class="comment">#     变量的相关操作</span></span><br><span class="line"><span class="comment"># History</span></span><br><span class="line"><span class="comment">#     2020/09/29  cjm  first release</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认变量</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$0</span>"</span>     <span class="comment"># 脚本文件名</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$1</span>"</span>     <span class="comment"># 传入的第一个参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$#</span>"</span>     <span class="comment"># 传入的参数个数 $0不算</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$@</span>"</span>     <span class="comment"># 独立列出每个传入的参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"$*"</span>     <span class="comment"># 和$@差不多吧，也是列举所有传入的参数，形式不同吧</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># shift n     相当于左移传入的变量，n默认为 1</span></span><br><span class="line"><span class="built_in">shift</span>         <span class="comment"># 这里执行了后原本的$1会没了，跟数字也是一样，n是几就左移几个变量</span></span><br><span class="line"></span><br><span class="line">myvar=hello   <span class="comment"># 等号两边不能有空格，否则会提示未找到命令</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入你的号码："</span> yournum    <span class="comment"># 通过命令行的输入得到yournum变量值</span></span><br><span class="line"><span class="comment"># declare 声明变量的类型，默认类型为字符串</span></span><br><span class="line"><span class="built_in">declare</span> -a myarr</span><br><span class="line"><span class="built_in">declare</span> -i myinteger</span><br><span class="line"><span class="built_in">declare</span> -x myvar  <span class="comment"># 将 myvar 变成环境变量，和 export 一样</span></span><br><span class="line"><span class="built_in">declare</span> +x myvar  <span class="comment"># 将 myvar 变成非环境变量的自定义变量，和上面相反</span></span><br><span class="line"><span class="built_in">declare</span> -r readonlyvar    <span class="comment"># 设置成只读类型，不能更改变量值，也不能 unset</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现特殊字符需要转义，不然会出错</span></span><br><span class="line">myvar=hello,\ I\<span class="string">'m\ cjm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 比较方便的做法是用引号，注意单双引号的区别即可</span></span><br><span class="line"><span class="string">myvar="hello, I'</span>m cjm<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 更改变量内容，是有点怪怪的</span></span><br><span class="line"><span class="string">myvar=<span class="variable">$&#123;myvar&#125;</span>"</span> hahahahah<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># `command`或 <span class="variable">$(command)</span></span></span><br><span class="line"><span class="string">cd /lib/modules/<span class="variable">$(uname -r)</span>/kernel</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<ul>
+<li><p>关于环境变量这事</p>
+<p>  个人感觉环境变量就类似全局变量，当前shell中在哪都能调用。</p>
+<ol>
+<li><p>env 和 export 命令可以查看当前shell的环境变量。比较常见的就HOME（存的家目录）、SHELL（当前环境使用的shell是什么）、HISTSIZE（历史命令记录的条数）、PATH（执行文件查找的路径，和Windows的PATH差不多）、LANG（语系）。。。</p>
+</li>
+<li><p>set 可查看所有变量（环境变量与自定义变量）</p>
+</li>
+<li><p>看的书列举了几个比较重要的环境变量（我没怎么用过哈，细节就算了，看看用途）</p>
+<ul>
+<li>PS1 提示符设置</li>
+<li>$ 当前shell的PID， 可用 echo “${$}” 查看下，确实是这么回事</li>
+<li>? 上个执行命令的返回值，返回值为0即代表上个命令执行成功，非0则为错误代码</li>
+</ul>
+</li>
+<li><p>export 用在共享自己的变量设置给后来调用的文件或其他进程。简而言之，将自定义变量变成环境变量</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>感觉Linux的命令十分的多，用好shell的路还很漫长。。。暂时用不到的先让它稍微等等吧。。。再挖个坑。。。希望记得回来填</p>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><p>在看到这部分的时候，还是比较愉快的，因为语法真一目了然。。。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># if ... then ... 这种写法和python的几乎是一样了，我应该大概率一直用这种吧</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ 条件判断1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="comment"># 判断1成功的代码块</span></span><br><span class="line"><span class="keyword">elif</span> [ 条件判断2 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="comment"># 判断2成功的代码块</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment"># 其余情况的代码块</span></span><br><span class="line"><span class="keyword">fi</span>      <span class="comment"># &lt;-- if的结束</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># case ... esac   这个也差不多，switch...case嘛，格式写起来不如上面的舒服</span></span><br><span class="line"><span class="keyword">case</span> $变量名 <span class="keyword">in</span></span><br><span class="line">    <span class="string">"第一个变量内容"</span>)</span><br><span class="line">        <span class="comment">#代码块</span></span><br><span class="line">        ;;</span><br><span class="line">    <span class="string">"第二个变量内容"</span>)</span><br><span class="line">        <span class="comment">#代码块</span></span><br><span class="line">        ;;</span><br><span class="line">    <span class="string">"第三个变量内容"</span>)</span><br><span class="line">        <span class="comment">#代码块</span></span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="comment">#相当于else部分的代码块</span></span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span>    <span class="comment">#&lt;-- case的结束</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>这里根据循环次数是否固定分为，不定循环(while do done 与 until do done) 和 固定循环(for do done)。语法格式也很简单，这里只记录下格式，练习的脚本文件想的起来就传github吧，想不起来就算了。</p>
+<p>语法嘛，俩字 — “了然”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 条件成立进入循环</span></span><br><span class="line"><span class="keyword">while</span> [ 判断条件 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="comment">#循环体</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与while相反，条件成立退出循环</span></span><br><span class="line">until [ 判断条件 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="comment">#循环体</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#↑↑↑↑↑↑↑↑不定循环↑↑↑↑↑↑↑↑  - - -  ↓↓↓↓↓↓↓↓固定循环↓↓↓↓↓↓↓↓</span></span><br><span class="line"><span class="comment"># 还是那话，python中的 for in 跟这个巨像。让我想起来“Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。”这句话。都说天下文章一大抄，看来语言也差不多嘛，都是脚本语言，像狠正常，手动狗头~~</span></span><br><span class="line"><span class="keyword">for</span> 变量 <span class="keyword">in</span> cons    <span class="comment">#cons的长度决定了循环体执行的次数</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="comment">#循环体</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>感觉这部分的语法就更加的了然了。。。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 注释</span></span><br><span class="line"><span class="comment"># 注释</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">funcname</span></span>()&#123;</span><br><span class="line">    <span class="comment"># 函数代码块</span></span><br><span class="line">    <span class="comment"># 函数的内置变量，$0 表示函数名称</span></span><br><span class="line">    <span class="comment">#               $1,$2...就是传参了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就一点，由于shell脚本是由上而下，从左到右执行的，脚本当中的函数要写在最前面，当然开头的声明和注释不算哈。。。书上是这么说的，个人感觉，只要写在调用之前应该是可以的，可能是为了好维护，集中写在开头部分吧。。。</p>
+<h2 id="shell脚本执行的方式与跟踪调试"><a href="#shell脚本执行的方式与跟踪调试" class="headerlink" title="shell脚本执行的方式与跟踪调试"></a>shell脚本执行的方式与跟踪调试</h2><p>shell脚本文件的执行方式：</p>
+<ul>
+<li>直接命令执行，前提是这个文件你得有rx权限</li>
+<li>绝对路径来执行</li>
+<li>相对路径来执行</li>
+<li>PATH功能，将脚本文件放在PATH指定的目录中</li>
+<li>以bash程序来执行，sh shell.sh(个人常用) 或者 bash shell.sh</li>
+<li>利用source来执行脚本，这个比较特殊，它会在父进程中执行，脚本的操作会在父进程生效！！！！</li>
+</ul>
+<p>shell脚本的跟踪与调试，用sh [-nvx] shell.sh就可以了。其中</p>
+<ul>
+<li>-n 不执行脚本，仅查询语法问题</li>
+<li>-v 在执行脚本前，将脚本内容输出到终端上</li>
+<li>-x 将使用到的脚本内容输出到终端上</li>
+</ul>
+<h2 id="–-暂时性的结尾-–"><a href="#–-暂时性的结尾-–" class="headerlink" title="–@@暂时性的结尾@@–"></a>–@@暂时性的结尾@@–</h2><p>看完敲完这部分有点点的感受。</p>
+<ul>
+<li><p>我之前在命令行敲的那些命令，都是系统自带或者第三方的一个个脚本文件的执行。（当然执行的路径得在PATH里能找到，否则执行起来不大方便）</p>
+</li>
+<li><p>shell script 能极大的方便做老多事情了，虽然目前我只是用来写虚拟机的python环境安装配置的脚本。大佬用得好的，肯定轻松加愉快，唱歌带跳舞…所以对Linux理解越深的人shell脚本写起来会越厉害。。。365里路啊。。。</p>
+</li>
+<li><p>目前我接触的都是bash了，其余的shell程序遇到再说吧。。。就这样了，一点了该睡觉了~~</p>
+</li>
+</ul>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>版权所有 © 2020 | 作者: Your Name | 主题 By <a class="theme-author" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">本站浏览总访问量: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">本站访问人数: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+<script src="/libs/jquery.min.js"></script>
+<script src="/libs/highlight/highlight.pack.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="/js/js.js"></script>
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
