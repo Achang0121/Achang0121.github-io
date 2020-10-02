@@ -6,14 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://achang0121.github.io">
-  <title>Tag: Python | JMChang的个人博客</title>
+  <title>JMChang的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <!-- 辅助函数（Helpers）https://hexo.io/zh-cn/docs/helpers.html#%E6%9D%A1%E4%BB%B6%E5%87%BD%E6%95%B0 -->
+    <meta name="keywords" content="个人学习记录博客">
   
   <meta name="description" content="个人学习记录博客">
 <meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JMChang的个人博客">
-<meta property="og:url" content="https://achang0121.github.io/tags/Python/index.html">
+<meta property="og:url" content="https://achang0121.github.io/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
 <meta property="og:description" content="个人学习记录博客">
 <meta property="og:locale" content="zh-Hans">
@@ -172,40 +175,168 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/20/TDD尝试的点滴记录/" class="archive-article-date">
-        <time datetime="2020-08-20T08:59:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
-</a>
 
-        </div>
-    	 
+  
+    <article id="post-Shell脚本-学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
   
     <h1 itemprop="name">
 	
-	      <a class="archive-article-title" href="/2020/08/20/TDD尝试的点滴记录/" target="_blank">TDD尝试的点滴记录</a>
+	      <a class="article-title" href="/2020/09/28/Shell脚本-学习记录/" target="_blank">Shell脚本 -- 学习记录</a>
         
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+<a href="/2020/09/28/Shell脚本-学习记录/" class="archive-article-date">
+        <time datetime="2020-09-28T12:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>对于Shell这玩意，真是早有所闻，近来凑巧了解bash一波，记录一哈了~~</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li><p>变量的设置规则</p>
+<ol>
+<li>用 = 来赋值</li>
+<li>赋值号（=）两边不能直接接空格，个人Python空惯了，有点不习惯</li>
+<li>变量名只能是英文字母和数字，且数字不能作为变量名的开头</li>
+<li>变量值中有空格，需要使用引号括起来；其中单引号内的特殊字符失去其特殊性变成纯文本，双引号内的特殊符号依然保持原本的特性</li>
+<li>反斜杠 \ 为转义符号</li>
+<li>`command` 或 $(command) 可嵌套在某条命令中用于提供辅助</li>
+<li>更改变量内容，用${var}或”$var”先获取之前的值进行更改，再赋值回去</li>
+<li>某变量需要在其他子进程执行，需将其export成环境变量</li>
+<li>通常全大写变量为系统默认变量，自定义变量为小写字符</li>
+<li>用unset var 释放变量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line"><span class="comment">#     变量的相关操作</span></span><br><span class="line"><span class="comment"># History</span></span><br><span class="line"><span class="comment">#     2020/09/29  cjm  first release</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认变量</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$0</span>"</span>     <span class="comment"># 脚本文件名</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$1</span>"</span>     <span class="comment"># 传入的第一个参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$#</span>"</span>     <span class="comment"># 传入的参数个数 $0不算</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$@</span>"</span>     <span class="comment"># 独立列出每个传入的参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"$*"</span>     <span class="comment"># 和$@差不多吧，也是列举所有传入的参数，形式不同吧</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># shift n     相当于左移传入的变量，n默认为 1</span></span><br><span class="line"><span class="built_in">shift</span>         <span class="comment"># 这里执行了后原本的$1会没了，跟数字也是一样，n是几就左移几个变量</span></span><br><span class="line"></span><br><span class="line">myvar=hello   <span class="comment"># 等号两边不能有空格，否则会提示未找到命令</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入你的号码："</span> yournum    <span class="comment"># 通过命令行的输入得到yournum变量值</span></span><br><span class="line"><span class="comment"># declare 声明变量的类型，默认类型为字符串</span></span><br><span class="line"><span class="built_in">declare</span> -a myarr</span><br><span class="line"><span class="built_in">declare</span> -i myinteger</span><br><span class="line"><span class="built_in">declare</span> -x myvar  <span class="comment"># 将 myvar 变成环境变量，和 export 一样</span></span><br><span class="line"><span class="built_in">declare</span> +x myvar  <span class="comment"># 将 myvar 变成非环境变量的自定义变量，和上面相反</span></span><br><span class="line"><span class="built_in">declare</span> -r readonlyvar    <span class="comment"># 设置成只读类型，不能更改变量值，也不能 unset</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现特殊字符需要转义，不然会出错</span></span><br><span class="line">myvar=hello,\ I\<span class="string">'m\ cjm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 比较方便的做法是用引号，注意单双引号的区别即可</span></span><br><span class="line"><span class="string">myvar="hello, I'</span>m cjm<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 更改变量内容，是有点怪怪的</span></span><br><span class="line"><span class="string">myvar=<span class="variable">$&#123;myvar&#125;</span>"</span> hahahahah<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># `command`或 <span class="variable">$(command)</span></span></span><br><span class="line"><span class="string">cd /lib/modules/<span class="variable">$(uname -r)</span>/kernel</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2020/09/28/Shell脚本-学习记录/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-TDD尝试的点滴记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2020/08/20/TDD尝试的点滴记录/" target="_blank">TDD尝试的点滴记录</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/20/TDD尝试的点滴记录/" class="archive-article-date">
+        <time datetime="2020-08-20T08:59:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>TDD的总体流程</p>
+<p><img src="https://github.com/Achang0121/images_blog/blob/master/TDD%E7%9A%84%E6%80%BB%E4%BD%93%E6%B5%81%E7%A8%8B.png?raw=true" alt="pic1"></p>
+<p>TDD(Test-Driven Development)相关的一些概念</p>
+<ul>
+<li><p>回归</p>
+<p>  新添加的代码破坏了应用原本可以正常使用的功能。</p>
+</li>
+<li><p>意外失败</p>
+<p>  测试在意料之外失败了，意味着测试中有错误，或者测试帮我们发现了一个回归，需要在代码中修正。</p>
+</li>
+<li><p>遇红/变绿/重构</p>
+<p>  描述TDD流程的另一种方式。先编写一个测试，看着它失败（遇红），然后编写代码让测试通过（变绿），最后重构，改进实现方式。</p>
+</li>
+<li><p>三角法</p>
+<p>  添加一个测试，专门为某些现有的代码编写用例，以此推断出普适的实现方式。</p>
+</li>
+<li><p>事不过三，三则重构</p>
+<p>  判断何时删除重复代码时使用的经验法则。如果两段代码很相似，往往还要等到第三段相似代码出现，才能确定重构时哪一部分是真正共通、可重用的。</p>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -221,48 +352,404 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-设计模式学习之单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/24/设计模式学习之单例模式/" target="_blank">设计模式学习之单例模式</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/24/设计模式学习之单例模式/" class="archive-article-date">
+        <time datetime="2019-10-24T13:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="什么是单例模式"><a href="#什么是单例模式" class="headerlink" title="什么是单例模式"></a>什么是单例模式</h2><p>提供这样一个机制 – 确保类有且只有一个特定类型的对象，并提供全局访问点。</p>
+<ul>
+<li>确保有且只有一个对象被创建</li>
+<li>为对象提供一个访问点</li>
+<li>控制共享资源的并行访问</li>
+</ul>
+<h2 id="利用Python实现经典的单利模式"><a href="#利用Python实现经典的单利模式" class="headerlink" title="利用Python实现经典的单利模式"></a>利用Python实现经典的单利模式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="comment"># 判断是否存在instance属性</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> hasattr(cls, <span class="string">'instance'</span>):</span><br><span class="line">            cls.instance = super(Singleton, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.instance</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = Singleton()</span><br><span class="line">    s2 = Singleton()</span><br><span class="line">    <span class="keyword">assert</span> s <span class="keyword">is</span> s2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">test()</span><br><span class="line"></span><br><span class="line"><span class="string">"""懒汉式实例化--&gt;只在实际需要的时候才创建对象"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>:</span></span><br><span class="line">    __instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> Singleton.__instance:</span><br><span class="line">            print(<span class="string">"__init__ method called..."</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"Instance already created: "</span>, self.get_instance())</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.__instance:</span><br><span class="line">            cls.__instance = Singleton()</span><br><span class="line">        <span class="keyword">return</span> cls.__instance</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = Singleton()</span><br><span class="line">    print(<span class="string">"Object created"</span>, Singleton.get_instance())</span><br><span class="line">    s1 = Singleton()</span><br><span class="line">    s2 = Singleton()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块级别的单例模式"><a href="#模块级别的单例模式" class="headerlink" title="模块级别的单例模式"></a>模块级别的单例模式</h2><p>默认，所有的模块都是单例。</p>
+<ul>
+<li>检查一个Python模块是否已经导入</li>
+<li>如果已经导入，返回该模块的对象。如果还没导入该模块，则导入该模块，并实例化</li>
+<li>因此，当模块被导入时，就会被初始化。再次导入也不会再次初始化，因为单例模式只能有一个对象，所以返回同一个对象</li>
+</ul>
+<h2 id="单例和元类"><a href="#单例和元类" class="headerlink" title="单例和元类"></a>单例和元类</h2><p>元类指的是某个类的类，即该类是其元类的实例。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-设计模式学习之概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/23/设计模式学习之概述/" target="_blank">设计模式学习之概述</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/23/设计模式学习之概述/" class="archive-article-date">
+        <time datetime="2019-10-23T13:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="面向对象编程的一些概念"><a href="#面向对象编程的一些概念" class="headerlink" title="面向对象编程的一些概念"></a>面向对象编程的一些概念</h2><ul>
+<li><p>对象</p>
+<ul>
+<li>表示所开发的应用程序的实体</li>
+<li>实体之间可以通过交互来解决实际问题</li>
+</ul>
+</li>
+<li><p>类</p>
+<ul>
+<li>类可以定义对象的属性和行为，属性是数据成员，行为由成员函数表示</li>
+<li>类包含了构造函数，为对象提供初始状态</li>
+<li>类是对象的抽象，易于服用</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li>表示对象的行为</li>
+<li>方法可以对属性进行处理，从而实现所需的功能</li>
+</ul>
+</li>
+<li><p>封装</p>
+<ul>
+<li>对象的行为对于外部是不可见的</li>
+<li>client不能通过直接操作改变对象内部的状态</li>
+<li>Python中并没有提供封装的关键字（Java的public、private、protected），在函数或者变量名前加上__，就可以将其访问性变成私有</li>
+</ul>
+</li>
+<li><p>多态</p>
+<ul>
+<li>对象根据输入参数的不同提供不同的实现</li>
+<li>不同类型的对象使用相同的接口</li>
+</ul>
+</li>
+<li><p>继承</p>
+<ul>
+<li>继承表示一个类可以继承基类的（大部分）功能</li>
+<li>继承被描述为一个重用基类中定义的功能并允许对原始软件的实现进行单独扩展的选项</li>
+<li>继承可以利用不同类的对象之间的关系建立层次结构。Python支持多继承</li>
+</ul>
+</li>
+<li><p>抽象</p>
+<ul>
+<li>提供一个简单的客户端接口，客户端通过接口与类的对象进行交互</li>
+<li>将内部类的复杂性抽象为一个接口</li>
+</ul>
+</li>
+<li><p>组合</p>
+<ul>
+<li>将对象或类组合成更复杂的数据结构或软件实现的方法</li>
+<li>在组合中，一个对象可用基于其他模块中的成员函数，无需通过继承就可以实现基本功能的跨模块使用</li>
+</ul>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/10/23/设计模式学习之概述/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode-二分查找练习整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/22/LeetCode-二分查找练习整理/" target="_blank">LeetCode-二分查找练习整理</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/22/LeetCode-二分查找练习整理/" class="archive-article-date">
+        <time datetime="2019-10-22T13:13:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>二分查找，算法其实并不难。。。边界条件真的是魔鬼，手动害怕~</p>
+<p><a href="https://leetcode-cn.com/problems/sqrtx/" target="_blank" rel="noopener">x的平方根</a></p>
+<ul>
+<li><p>描述</p>
+<p>  实现 int sqrt(int x) 函数。</p>
+<p>  计算并返回 x 的平方根，其中 x 是非负整数。</p>
+<p>  由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
+<p>  示例 1:</p>
+<pre><code>输入: 4
+
+输出: 2</code></pre><p>  示例 2:</p>
+<pre><code>输入: 8
+
+输出: 2</code></pre><p>  说明: 8 的平方根是 2.82842…,由于返回类型是整数，小数部分将被舍去。</p>
+</li>
+<li><p>题解</p>
+<p>  没啥好说的，比那种让算加法不让用+运算符的容易得多哈。。。二分法的经典模板</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mySqrt</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = x // <span class="number">2</span> + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = (left + right + <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> mid * mid &gt; x:</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid</span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/10/22/LeetCode-二分查找练习整理/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-知乎倒立文字验证码的识别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/12/知乎倒立文字验证码的识别/" target="_blank">知乎倒立文字验证码的识别</a>
+        
+    </h1>
+  
+
+
+  
+  
 <a href="/2019/10/12/知乎倒立文字验证码的识别/" class="archive-article-date">
         <time datetime="2019-10-12T06:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/12/知乎倒立文字验证码的识别/" target="_blank">知乎倒立文字验证码的识别</a>
-        
-    </h1>
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>因为实验模拟登陆知乎，短时间内多次反复登陆退出。。。知乎的倒立文字验证码就来了。（也弄不太清楚触发机制）</p>
+<p>倒立文字验证码的识别比较麻烦。。。github上有个大佬写了个<a href="https://github.com/muchrooms/zheye" target="_blank" rel="noopener">zheye</a>，刚好可以直接拿来使用一哈~~（大佬666）</p>
+    
+    <a class="article-more-a" href="/2019/10/12/知乎倒立文字验证码的识别/#more">阅读更多 >></a>
+    
+    
 
+    
 
-        <div class="article-info info-on-right">
-          
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -278,38 +765,80 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
+    <article id="post-获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/" target="_blank">获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法</a>
+        
+    </h1>
+  
+
+
+  
+  
 <a href="/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/" class="archive-article-date">
         <time datetime="2019-10-11T06:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/" target="_blank">获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法</a>
-        
-    </h1>
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="遇到的问题-上图"><a href="#遇到的问题-上图" class="headerlink" title="遇到的问题(上图)"></a>遇到的问题(上图)</h2><p>用xpath获取的数字都是方框</p>
+<p><img src="https://github.com/Achang0121/images_blog/blob/master/douyin.jpg?raw=true" alt="pic1"></p>
+<p>查看源代码也不是想要的数字</p>
+<p><img src="https://github.com/Achang0121/images_blog/blob/master/douyin2.jpg?raw=true" alt="pic2"></p>
+<p>怎么破呢</p>
+    
+    <a class="article-more-a" href="/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/#more">阅读更多 >></a>
+    
+    
 
+    
 
-        <div class="article-info info-on-right">
-          
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -325,38 +854,77 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/11/Selenium模拟登陆知乎的二三事/" class="archive-article-date">
-        <time datetime="2019-10-11T04:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Selenium模拟登陆知乎的二三事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
   
     <h1 itemprop="name">
 	
-	      <a class="archive-article-title" href="/2019/10/11/Selenium模拟登陆知乎的二三事/" target="_blank">Selenium模拟登陆知乎的二三事</a>
+	      <a class="article-title" href="/2019/10/11/Selenium模拟登陆知乎的二三事/" target="_blank">Selenium模拟登陆知乎的二三事</a>
         
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+<a href="/2019/10/11/Selenium模拟登陆知乎的二三事/" class="archive-article-date">
+        <time datetime="2019-10-11T04:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a> 不知道从什么时候开始，不登录的话，啥也看不到。。。</p>
+<p>我用Chrome比较多，所以弄了ChromeWebdriver + Chrome + Selenium 来弄这个模拟登陆。。。</p>
+    
+    <a class="article-more-a" href="/2019/10/11/Selenium模拟登陆知乎的二三事/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -376,38 +944,79 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
+    <article id="post-用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/" target="_blank">用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url</a>
+        
+    </h1>
+  
+
+
+  
+  
 <a href="/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/" class="archive-article-date">
         <time datetime="2019-10-10T14:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/" target="_blank">用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url</a>
-        
-    </h1>
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise ValueError('Missing scheme in request url: %s' % self._url)</span><br></pre></td></tr></table></figure>
 
+<p>对！还是爬博客园时出现的事情。。。</p>
+<p>提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -</p>
+    
+    <a class="article-more-a" href="/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/#more">阅读更多 >></a>
+    
+    
 
-        <div class="article-info info-on-right">
-          
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -423,38 +1032,76 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
+    <article id="post-博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/" target="_blank">博客园的文章点赞数、评论数、浏览数...动态加载来的？直接爬爬不到？进来瞅瞅</a>
+        
+    </h1>
+  
+
+
+  
+  
 <a href="/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/" class="archive-article-date">
         <time datetime="2019-10-09T13:23:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/" target="_blank">博客园的文章点赞数、评论数、浏览数...动态加载来的？直接爬爬不到？进来瞅瞅</a>
-        
-    </h1>
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>N久以前写过一个<a href="https://blog.jobbole.com/" target="_blank" rel="noopener">伯乐在线</a>的爬虫脚本，也不知道是啥时候这个网站不能访问了…（也不知道啥情况，我也是稀里糊涂的知道的）…有小伙伴说<a href="https://news.cnblogs.com" target="_blank" rel="noopener">博客园</a>和伯乐在线有点像…于是我准备删了伯乐在线的脚本，换成博客园的…</p>
+    
+    <a class="article-more-a" href="/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/#more">阅读更多 >></a>
+    
+    
 
+    
 
-        <div class="article-info info-on-right">
-          
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -470,209 +1117,39 @@
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/07/LeetCode-字符串的练习/" class="archive-article-date">
-        <time datetime="2019-10-07T07:05:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/07/LeetCode-字符串的练习/" target="_blank">LeetCode -- 字符串的练习</a>
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/07/LeetCode-堆的练习/" class="archive-article-date">
-        <time datetime="2019-10-07T06:41:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/07/LeetCode-堆的练习/" target="_blank">LeetCode -- 堆的练习</a>
         
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/07/LeetCode-栈和队列的练习/" class="archive-article-date">
-        <time datetime="2019-10-07T06:08:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/07/LeetCode-栈和队列的练习/" target="_blank">LeetCode -- 栈和队列的练习</a>
         
-    </h1>
-  
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/06/leetcode-二叉树练习/" class="archive-article-date">
-        <time datetime="2019-10-06T08:27:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	      <a class="archive-article-title" href="/2019/10/06/leetcode-二叉树练习/" target="_blank">leetcode -- 二叉树练习</a>
-        
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/Python/page/2/">2</a><a class="extend next" rel="next" href="/tags/Python/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -712,10 +1189,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
