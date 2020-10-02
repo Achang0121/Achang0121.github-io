@@ -16,7 +16,7 @@
 <meta name="keywords" content="Python, 爬虫, Linux, Scrapy, 数据库">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JMChang的个人博客">
-<meta property="og:url" content="https://achang0121.github.io/blog/index.html">
+<meta property="og:url" content="https://achang0121.github.io/blog/blog/page/3/index.html">
 <meta property="og:site_name" content="JMChang的个人博客">
 <meta property="og:description" content="个人学习记录博客">
 <meta property="og:locale" content="zh-Hans">
@@ -177,7 +177,7 @@
             
 
   
-    <article id="post-Shell脚本-学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-文件系统操作与磁盘管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -185,7 +185,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2020/09/28/Shell脚本-学习记录/" target="_blank">Shell脚本 -- 学习记录</a>
+	      <a class="article-title" href="/blog/2019/09/02/Linux-文件系统操作与磁盘管理/" target="_blank">Linux -- 文件系统操作与磁盘管理</a>
         
     </h1>
   
@@ -193,8 +193,8 @@
 
   
   
-<a href="/blog/2020/09/28/Shell脚本-学习记录/" class="archive-article-date">
-        <time datetime="2020-09-28T12:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
+<a href="/blog/2019/09/02/Linux-文件系统操作与磁盘管理/" class="archive-article-date">
+        <time datetime="2019-09-02T13:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
 
   
@@ -203,27 +203,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>对于Shell这玩意，真是早有所闻，近来凑巧了解bash一波，记录一哈了~~</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
-<li><p>变量的设置规则</p>
-<ol>
-<li>用 = 来赋值</li>
-<li>赋值号（=）两边不能直接接空格，个人Python空惯了，有点不习惯</li>
-<li>变量名只能是英文字母和数字，且数字不能作为变量名的开头</li>
-<li>变量值中有空格，需要使用引号括起来；其中单引号内的特殊字符失去其特殊性变成纯文本，双引号内的特殊符号依然保持原本的特性</li>
-<li>反斜杠 \ 为转义符号</li>
-<li>`command` 或 $(command) 可嵌套在某条命令中用于提供辅助</li>
-<li>更改变量内容，用${var}或”$var”先获取之前的值进行更改，再赋值回去</li>
-<li>某变量需要在其他子进程执行，需将其export成环境变量</li>
-<li>通常全大写变量为系统默认变量，自定义变量为小写字符</li>
-<li>用unset var 释放变量</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Program</span></span><br><span class="line"><span class="comment">#     变量的相关操作</span></span><br><span class="line"><span class="comment"># History</span></span><br><span class="line"><span class="comment">#     2020/09/29  cjm  first release</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认变量</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$0</span>"</span>     <span class="comment"># 脚本文件名</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$1</span>"</span>     <span class="comment"># 传入的第一个参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$2</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$#</span>"</span>     <span class="comment"># 传入的参数个数 $0不算</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$@</span>"</span>     <span class="comment"># 独立列出每个传入的参数</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"$*"</span>     <span class="comment"># 和$@差不多吧，也是列举所有传入的参数，形式不同吧</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># shift n     相当于左移传入的变量，n默认为 1</span></span><br><span class="line"><span class="built_in">shift</span>         <span class="comment"># 这里执行了后原本的$1会没了，跟数字也是一样，n是几就左移几个变量</span></span><br><span class="line"></span><br><span class="line">myvar=hello   <span class="comment"># 等号两边不能有空格，否则会提示未找到命令</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入你的号码："</span> yournum    <span class="comment"># 通过命令行的输入得到yournum变量值</span></span><br><span class="line"><span class="comment"># declare 声明变量的类型，默认类型为字符串</span></span><br><span class="line"><span class="built_in">declare</span> -a myarr</span><br><span class="line"><span class="built_in">declare</span> -i myinteger</span><br><span class="line"><span class="built_in">declare</span> -x myvar  <span class="comment"># 将 myvar 变成环境变量，和 export 一样</span></span><br><span class="line"><span class="built_in">declare</span> +x myvar  <span class="comment"># 将 myvar 变成非环境变量的自定义变量，和上面相反</span></span><br><span class="line"><span class="built_in">declare</span> -r readonlyvar    <span class="comment"># 设置成只读类型，不能更改变量值，也不能 unset</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现特殊字符需要转义，不然会出错</span></span><br><span class="line">myvar=hello,\ I\<span class="string">'m\ cjm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 比较方便的做法是用引号，注意单双引号的区别即可</span></span><br><span class="line"><span class="string">myvar="hello, I'</span>m cjm<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 更改变量内容，是有点怪怪的</span></span><br><span class="line"><span class="string">myvar=<span class="variable">$&#123;myvar&#125;</span>"</span> hahahahah<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># `command`或 <span class="variable">$(command)</span></span></span><br><span class="line"><span class="string">cd /lib/modules/<span class="variable">$(uname -r)</span>/kernel</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
+    <h3 id="查看磁盘和目录的容量"><a href="#查看磁盘和目录的容量" class="headerlink" title="查看磁盘和目录的容量"></a>查看磁盘和目录的容量</h3><h4 id="使用df命令查看磁盘的容量"><a href="#使用df命令查看磁盘的容量" class="headerlink" title="使用df命令查看磁盘的容量"></a>使用df命令查看磁盘的容量</h4><p><img src="https://github.com/Achang0121/images_blog/blob/master/df%E5%91%BD%E4%BB%A4.jpg?raw=true" alt="avatar"></p>
     
-    <a class="article-more-a" href="/blog/2020/09/28/Shell脚本-学习记录/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/09/02/Linux-文件系统操作与磁盘管理/#more">阅读更多 >></a>
     
     
 
@@ -242,10 +224,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Shell</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -280,7 +258,7 @@
 
 
   
-    <article id="post-TDD尝试的点滴记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python-实现常用数据结构-线性结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -288,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2020/08/20/TDD尝试的点滴记录/" target="_blank">TDD尝试的点滴记录</a>
+	      <a class="article-title" href="/blog/2019/08/30/Python-实现常用数据结构-线性结构/" target="_blank">Python -- 实现常用数据结构之线性结构</a>
         
     </h1>
   
@@ -296,8 +274,8 @@
 
   
   
-<a href="/blog/2020/08/20/TDD尝试的点滴记录/" class="archive-article-date">
-        <time datetime="2020-08-20T08:59:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+<a href="/blog/2019/08/30/Python-实现常用数据结构-线性结构/" class="archive-article-date">
+        <time datetime="2019-08-30T08:12:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
 </a>
 
   
@@ -306,439 +284,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>TDD的总体流程</p>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/TDD%E7%9A%84%E6%80%BB%E4%BD%93%E6%B5%81%E7%A8%8B.png?raw=true" alt="pic1"></p>
-<p>TDD(Test-Driven Development)相关的一些概念</p>
-<ul>
-<li><p>回归</p>
-<p>  新添加的代码破坏了应用原本可以正常使用的功能。</p>
-</li>
-<li><p>意外失败</p>
-<p>  测试在意料之外失败了，意味着测试中有错误，或者测试帮我们发现了一个回归，需要在代码中修正。</p>
-</li>
-<li><p>遇红/变绿/重构</p>
-<p>  描述TDD流程的另一种方式。先编写一个测试，看着它失败（遇红），然后编写代码让测试通过（变绿），最后重构，改进实现方式。</p>
-</li>
-<li><p>三角法</p>
-<p>  添加一个测试，专门为某些现有的代码编写用例，以此推断出普适的实现方式。</p>
-</li>
-<li><p>事不过三，三则重构</p>
-<p>  判断何时删除重复代码时使用的经验法则。如果两段代码很相似，往往还要等到第三段相似代码出现，才能确定重构时哪一部分是真正共通、可重用的。</p>
-</li>
-</ul>
-
+    <blockquote>
+<p>data structure, 拽下洋文，百度百科–&gt;数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。</p>
+</blockquote>
     
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习之单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/blog/2019/10/24/设计模式学习之单例模式/" target="_blank">设计模式学习之单例模式</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2019/10/24/设计模式学习之单例模式/" class="archive-article-date">
-        <time datetime="2019-10-24T13:16:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="什么是单例模式"><a href="#什么是单例模式" class="headerlink" title="什么是单例模式"></a>什么是单例模式</h2><p>提供这样一个机制 – 确保类有且只有一个特定类型的对象，并提供全局访问点。</p>
-<ul>
-<li>确保有且只有一个对象被创建</li>
-<li>为对象提供一个访问点</li>
-<li>控制共享资源的并行访问</li>
-</ul>
-<h2 id="利用Python实现经典的单利模式"><a href="#利用Python实现经典的单利模式" class="headerlink" title="利用Python实现经典的单利模式"></a>利用Python实现经典的单利模式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="comment"># 判断是否存在instance属性</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> hasattr(cls, <span class="string">'instance'</span>):</span><br><span class="line">            cls.instance = super(Singleton, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.instance</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = Singleton()</span><br><span class="line">    s2 = Singleton()</span><br><span class="line">    <span class="keyword">assert</span> s <span class="keyword">is</span> s2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">test()</span><br><span class="line"></span><br><span class="line"><span class="string">"""懒汉式实例化--&gt;只在实际需要的时候才创建对象"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span>:</span></span><br><span class="line">    __instance = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> Singleton.__instance:</span><br><span class="line">            print(<span class="string">"__init__ method called..."</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"Instance already created: "</span>, self.get_instance())</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.__instance:</span><br><span class="line">            cls.__instance = Singleton()</span><br><span class="line">        <span class="keyword">return</span> cls.__instance</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = Singleton()</span><br><span class="line">    print(<span class="string">"Object created"</span>, Singleton.get_instance())</span><br><span class="line">    s1 = Singleton()</span><br><span class="line">    s2 = Singleton()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-
-<h2 id="模块级别的单例模式"><a href="#模块级别的单例模式" class="headerlink" title="模块级别的单例模式"></a>模块级别的单例模式</h2><p>默认，所有的模块都是单例。</p>
-<ul>
-<li>检查一个Python模块是否已经导入</li>
-<li>如果已经导入，返回该模块的对象。如果还没导入该模块，则导入该模块，并实例化</li>
-<li>因此，当模块被导入时，就会被初始化。再次导入也不会再次初始化，因为单例模式只能有一个对象，所以返回同一个对象</li>
-</ul>
-<h2 id="单例和元类"><a href="#单例和元类" class="headerlink" title="单例和元类"></a>单例和元类</h2><p>元类指的是某个类的类，即该类是其元类的实例。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式学习之概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/blog/2019/10/23/设计模式学习之概述/" target="_blank">设计模式学习之概述</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2019/10/23/设计模式学习之概述/" class="archive-article-date">
-        <time datetime="2019-10-23T13:32:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="面向对象编程的一些概念"><a href="#面向对象编程的一些概念" class="headerlink" title="面向对象编程的一些概念"></a>面向对象编程的一些概念</h2><ul>
-<li><p>对象</p>
-<ul>
-<li>表示所开发的应用程序的实体</li>
-<li>实体之间可以通过交互来解决实际问题</li>
-</ul>
-</li>
-<li><p>类</p>
-<ul>
-<li>类可以定义对象的属性和行为，属性是数据成员，行为由成员函数表示</li>
-<li>类包含了构造函数，为对象提供初始状态</li>
-<li>类是对象的抽象，易于服用</li>
-</ul>
-</li>
-<li><p>方法</p>
-<ul>
-<li>表示对象的行为</li>
-<li>方法可以对属性进行处理，从而实现所需的功能</li>
-</ul>
-</li>
-<li><p>封装</p>
-<ul>
-<li>对象的行为对于外部是不可见的</li>
-<li>client不能通过直接操作改变对象内部的状态</li>
-<li>Python中并没有提供封装的关键字（Java的public、private、protected），在函数或者变量名前加上__，就可以将其访问性变成私有</li>
-</ul>
-</li>
-<li><p>多态</p>
-<ul>
-<li>对象根据输入参数的不同提供不同的实现</li>
-<li>不同类型的对象使用相同的接口</li>
-</ul>
-</li>
-<li><p>继承</p>
-<ul>
-<li>继承表示一个类可以继承基类的（大部分）功能</li>
-<li>继承被描述为一个重用基类中定义的功能并允许对原始软件的实现进行单独扩展的选项</li>
-<li>继承可以利用不同类的对象之间的关系建立层次结构。Python支持多继承</li>
-</ul>
-</li>
-<li><p>抽象</p>
-<ul>
-<li>提供一个简单的客户端接口，客户端通过接口与类的对象进行交互</li>
-<li>将内部类的复杂性抽象为一个接口</li>
-</ul>
-</li>
-<li><p>组合</p>
-<ul>
-<li>将对象或类组合成更复杂的数据结构或软件实现的方法</li>
-<li>在组合中，一个对象可用基于其他模块中的成员函数，无需通过继承就可以实现基本功能的跨模块使用</li>
-</ul>
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/blog/2019/10/23/设计模式学习之概述/#more">阅读更多 >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode-二分查找练习整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/blog/2019/10/22/LeetCode-二分查找练习整理/" target="_blank">LeetCode-二分查找练习整理</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2019/10/22/LeetCode-二分查找练习整理/" class="archive-article-date">
-        <time datetime="2019-10-22T13:13:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>二分查找，算法其实并不难。。。边界条件真的是魔鬼，手动害怕~</p>
-<p><a href="https://leetcode-cn.com/problems/sqrtx/" target="_blank" rel="noopener">x的平方根</a></p>
-<ul>
-<li><p>描述</p>
-<p>  实现 int sqrt(int x) 函数。</p>
-<p>  计算并返回 x 的平方根，其中 x 是非负整数。</p>
-<p>  由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
-<p>  示例 1:</p>
-<pre><code>输入: 4
-
-输出: 2</code></pre><p>  示例 2:</p>
-<pre><code>输入: 8
-
-输出: 2</code></pre><p>  说明: 8 的平方根是 2.82842…,由于返回类型是整数，小数部分将被舍去。</p>
-</li>
-<li><p>题解</p>
-<p>  没啥好说的，比那种让算加法不让用+运算符的容易得多哈。。。二分法的经典模板</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mySqrt</span><span class="params">(self, x: int)</span> -&gt; int:</span></span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = x // <span class="number">2</span> + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = (left + right + <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> mid * mid &gt; x:</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid</span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-    
-    <a class="article-more-a" href="/blog/2019/10/22/LeetCode-二分查找练习整理/#more">阅读更多 >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-知乎倒立文字验证码的识别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	      <a class="article-title" href="/blog/2019/10/12/知乎倒立文字验证码的识别/" target="_blank">知乎倒立文字验证码的识别</a>
-        
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2019/10/12/知乎倒立文字验证码的识别/" class="archive-article-date">
-        <time datetime="2019-10-12T06:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>因为实验模拟登陆知乎，短时间内多次反复登陆退出。。。知乎的倒立文字验证码就来了。（也弄不太清楚触发机制）</p>
-<p>倒立文字验证码的识别比较麻烦。。。github上有个大佬写了个<a href="https://github.com/muchrooms/zheye" target="_blank" rel="noopener">zheye</a>，刚好可以直接拿来使用一哈~~（大佬666）</p>
-    
-    <a class="article-more-a" href="/blog/2019/10/12/知乎倒立文字验证码的识别/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/08/30/Python-实现常用数据结构-线性结构/#more">阅读更多 >></a>
     
     
 
@@ -759,7 +309,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -795,7 +345,7 @@
 
 
   
-    <article id="post-获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-文件打包与解压缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -803,7 +353,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/" target="_blank">获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法</a>
+	      <a class="article-title" href="/blog/2019/08/30/Linux-文件打包与解压缩/" target="_blank">Linux -- 文件打包与解压缩</a>
         
     </h1>
   
@@ -811,8 +361,8 @@
 
   
   
-<a href="/blog/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/" class="archive-article-date">
-        <time datetime="2019-10-11T06:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+<a href="/blog/2019/08/30/Linux-文件打包与解压缩/" class="archive-article-date">
+        <time datetime="2019-08-30T04:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
 </a>
 
   
@@ -821,13 +371,64 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="遇到的问题-上图"><a href="#遇到的问题-上图" class="headerlink" title="遇到的问题(上图)"></a>遇到的问题(上图)</h2><p>用xpath获取的数字都是方框</p>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/douyin.jpg?raw=true" alt="pic1"></p>
-<p>查看源代码也不是想要的数字</p>
-<p><img src="https://github.com/Achang0121/images_blog/blob/master/douyin2.jpg?raw=true" alt="pic2"></p>
-<p>怎么破呢</p>
+    <ul>
+<li><p>Linux上常见的压缩包文件格式</p>
+<table>
+<thead>
+<tr>
+<th>文件后缀名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*.zip</td>
+<td align="left">zip 程序打包压缩的文件</td>
+</tr>
+<tr>
+<td>*.rar</td>
+<td align="left">rar 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.7z</td>
+<td align="left">7zip 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.tar</td>
+<td align="left">tar 程序打包，未压缩的文件</td>
+</tr>
+<tr>
+<td>*.gz</td>
+<td align="left">gzip 程序（GNU zip）压缩的文件</td>
+</tr>
+<tr>
+<td>*.xz</td>
+<td align="left">xz 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.bz2</td>
+<td align="left">bzip2 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.tar.gz</td>
+<td align="left">tar 打包，gzip 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.tar.xz</td>
+<td align="left">tar 打包，xz 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*tar.bz2</td>
+<td align="left">tar 打包，bzip2 程序压缩的文件</td>
+</tr>
+<tr>
+<td>*.tar.7z</td>
+<td align="left">tar 打包，7z 程序压缩的文件</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
     
-    <a class="article-more-a" href="/blog/2019/10/11/获取抖音的粉丝数、获赞数、id啥的这些数字遇到的问题以及解决方法/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/08/30/Linux-文件打包与解压缩/#more">阅读更多 >></a>
     
     
 
@@ -844,11 +445,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -884,7 +481,7 @@
 
 
   
-    <article id="post-Selenium模拟登陆知乎的二三事" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Selenium-安装配置和常用的一些语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -892,7 +489,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2019/10/11/Selenium模拟登陆知乎的二三事/" target="_blank">Selenium模拟登陆知乎的二三事</a>
+	      <a class="article-title" href="/blog/2019/08/29/Selenium-安装配置和常用的一些语法/" target="_blank">Selenium -- 安装配置和常用的一些语法</a>
         
     </h1>
   
@@ -900,8 +497,8 @@
 
   
   
-<a href="/blog/2019/10/11/Selenium模拟登陆知乎的二三事/" class="archive-article-date">
-        <time datetime="2019-10-11T04:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+<a href="/blog/2019/08/29/Selenium-安装配置和常用的一些语法/" class="archive-article-date">
+        <time datetime="2019-08-29T09:04:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
 </a>
 
   
@@ -910,10 +507,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a> 不知道从什么时候开始，不登录的话，啥也看不到。。。</p>
-<p>我用Chrome比较多，所以弄了ChromeWebdriver + Chrome + Selenium 来弄这个模拟登陆。。。</p>
+    <p><a href="https://selenium-python.readthedocs.io/index.html" target="_blank" rel="noopener">selenium</a> 听说是做自动化测试的工具 - Web Browser Automation，个人仅仅用来模拟登陆一些不登录不让爬的网站。</p>
     
-    <a class="article-more-a" href="/blog/2019/10/11/Selenium模拟登陆知乎的二三事/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/08/29/Selenium-安装配置和常用的一些语法/#more">阅读更多 >></a>
     
     
 
@@ -936,9 +532,91 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Selenium</a>
         		</li>
-      		 
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux-环境变量与文件查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	      <a class="article-title" href="/blog/2019/08/25/Linux-环境变量与文件查找/" target="_blank">Linux--环境变量与文件查找</a>
+        
+    </h1>
+  
+
+
+  
+  
+<a href="/blog/2019/08/25/Linux-环境变量与文件查找/" class="archive-article-date">
+        <time datetime="2019-08-25T14:09:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><blockquote>
+<p>变量：计算机中用于记录一个值的符号，而这些符号将用于不同的运算处理中。</p>
+</blockquote>
+<blockquote>
+<p>变量的作用域：即变量的有效范围，一个范围内只能有一个同名变量。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/blog/2019/08/25/Linux-环境变量与文件查找/#more">阅读更多 >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -974,7 +652,7 @@
 
 
   
-    <article id="post-用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-目录结构及文件基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -982,7 +660,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/" target="_blank">用scrapy下载图片时遇到的坑--Missing scheme in request url: %s&#39; % self._url</a>
+	      <a class="article-title" href="/blog/2019/08/24/Linux-目录结构及文件基本操作/" target="_blank">Linux--目录结构及文件基本操作</a>
         
     </h1>
   
@@ -990,8 +668,8 @@
 
   
   
-<a href="/blog/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/" class="archive-article-date">
-        <time datetime="2019-10-10T14:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+<a href="/blog/2019/08/24/Linux-目录结构及文件基本操作/" class="archive-article-date">
+        <time datetime="2019-08-24T10:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
 </a>
 
   
@@ -1000,12 +678,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise ValueError('Missing scheme in request url: %s' % self._url)</span><br></pre></td></tr></table></figure>
-
-<p>对！还是爬博客园时出现的事情。。。</p>
-<p>提示信息说了在请求url中缺失了scheme，吃了语言的亏。嘛是scheme，赶紧谷歌翻译一哈。。。好多意思来着，方案、格式、图、阴谋（这个是真滴-_-||）···有点不靠谱 - -</p>
+    <h2 id="Linux目录与Windows目录的区别"><a href="#Linux目录与Windows目录的区别" class="headerlink" title="Linux目录与Windows目录的区别"></a>Linux目录与Windows目录的区别</h2><blockquote>
+<p>一种不同是体现在目录与存储介质(磁盘，内存，DVD等)的关系上。</p>
+</blockquote>
+<ul>
+<li><p>以往的Windows一直是以存储介质为主的，主要以盘符(C盘，D盘…)及分区来实现文件管理，然后之下才是目录，目录显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录没什么关系。</p>
+</li>
+<li><p>Unix/Linux恰好相反，Unix/Linux是以树形目录结构的形式来构建整个系统的，可以理解为树形目录结构是一个用户可操作系统的骨架。</p>
+</li>
+<li><p>虽然本质上无论是目录结构还是操作系统内核都是挂载在目录上的，但是从逻辑上来说Linux的磁盘是挂载在目录上的，每一个目录不仅能使用本地磁盘分区的文件系统，也可以使用网络上的文件系统。</p>
+</li>
+</ul>
     
-    <a class="article-more-a" href="/blog/2019/10/10/用scrapy下载图片时遇到的坑-Missing-scheme-in-request-url-s-self-url/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/08/24/Linux-目录结构及文件基本操作/#more">阅读更多 >></a>
     
     
 
@@ -1022,11 +707,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1062,7 +743,7 @@
 
 
   
-    <article id="post-博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux-用户及文件权限管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
@@ -1070,7 +751,7 @@
   
     <h1 itemprop="name">
 	
-	      <a class="article-title" href="/blog/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/" target="_blank">博客园的文章点赞数、评论数、浏览数...动态加载来的？直接爬爬不到？进来瞅瞅</a>
+	      <a class="article-title" href="/blog/2019/08/24/Linux-用户及文件权限管理/" target="_blank">Linux--用户及文件权限管理</a>
         
     </h1>
   
@@ -1078,8 +759,8 @@
 
   
   
-<a href="/blog/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/" class="archive-article-date">
-        <time datetime="2019-10-09T13:23:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+<a href="/blog/2019/08/24/Linux-用户及文件权限管理/" class="archive-article-date">
+        <time datetime="2019-08-24T09:35:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
 </a>
 
   
@@ -1088,9 +769,44 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>N久以前写过一个<a href="https://blog.jobbole.com/" target="_blank" rel="noopener">伯乐在线</a>的爬虫脚本，也不知道是啥时候这个网站不能访问了…（也不知道啥情况，我也是稀里糊涂的知道的）…有小伙伴说<a href="https://news.cnblogs.com" target="_blank" rel="noopener">博客园</a>和伯乐在线有点像…于是我准备删了伯乐在线的脚本，换成博客园的…</p>
+    <h2 id="Linux-用户管理"><a href="#Linux-用户管理" class="headerlink" title="Linux 用户管理"></a>Linux 用户管理</h2><h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">who am i 或 who mom likes</span><br></pre></td></tr></table></figure>
+
+<p>who 命令其他常用参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td align="left">打印能打印的全部</td>
+</tr>
+<tr>
+<td>-d</td>
+<td align="left">打印死掉的进程</td>
+</tr>
+<tr>
+<td>-m</td>
+<td align="left">同am i, mom likes</td>
+</tr>
+<tr>
+<td>-q</td>
+<td align="left">打印当前登录用户数及用户名</td>
+</tr>
+<tr>
+<td>-u</td>
+<td align="left">打印当前登录用户登录信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td align="left">打印运行等级</td>
+</tr>
+</tbody></table>
+<hr>
     
-    <a class="article-more-a" href="/blog/2019/10/09/博客园的文章点赞数、评论数、浏览数-动态加载来的？直接爬爬不到？进来瞅瞅/#more">阅读更多 >></a>
+    <a class="article-more-a" href="/blog/2019/08/24/Linux-用户及文件权限管理/#more">阅读更多 >></a>
     
     
 
@@ -1107,11 +823,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1149,7 +861,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/blog/blog/page/2/">&laquo; Prev</a><a class="page-number" href="/blog/blog/">1</a><a class="page-number" href="/blog/blog/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
@@ -1301,11 +1013,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+                <a href="javascript:void(0)" class="js-tag color2">Django</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Django</a>
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
               </li>
              
               <li class="article-tag-list-item">
